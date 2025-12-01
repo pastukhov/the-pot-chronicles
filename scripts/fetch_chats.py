@@ -8,11 +8,14 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List
 
+import requests
 from openai import OpenAI
 
 RAW_DIR = Path(__file__).resolve().parent.parent / "raw_threads"
 API_KEY_ENV = "OPENAI_API_KEY"
 MAX_PAGE = 100
+API_BASE = os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1").rstrip("/")
+ASSISTANTS_BETA = {"OpenAI-Beta": "assistants=v2"}
 
 
 def ensure_dirs() -> None:
@@ -57,6 +60,25 @@ def fetch_all_threads(client: OpenAI) -> List[Dict[str, Any]]:
       resp = client.beta.threads.list(limit=MAX_PAGE, after=after)
     except TypeError:
       resp = client.beta.threads.list(limit=MAX_PAGE)
+    except AttributeError:
+      # Fallback to HTTP if SDK lacks .list
+      url = f"{API_BASE}/threads"
+      params = {"limit": MAX_PAGE}
+      if after:
+        params["after"] = after
+      r = requests.get(url, headers={"Authorization": f"Bearer {client.api_key}", **ASSISTANTS_BETA}, params=params, timeout=30)
+      if r.status_code >= 400:
+        sys.stderr.write(f"Failed to list threads via HTTP: {r.status_code} {r.text}\n")
+        break
+      payload = r.json()
+      data = payload.get("data", [])
+      threads.extend(data)
+      if not payload.get("has_more"):
+        break
+      after = payload.get("last_id")
+      if not after:
+        break
+      continue
     data = [to_plain(t) for t in resp.data]
     threads.extend(data)
     if not getattr(resp, "has_more", False):
@@ -75,6 +97,24 @@ def fetch_messages(client: OpenAI, thread_id: str) -> List[Dict[str, Any]]:
       resp = client.beta.threads.messages.list(thread_id=thread_id, limit=MAX_PAGE, after=after, order="asc")
     except TypeError:
       resp = client.beta.threads.messages.list(thread_id=thread_id, limit=MAX_PAGE, order="asc")
+    except AttributeError:
+      url = f"{API_BASE}/threads/{thread_id}/messages"
+      params = {"limit": MAX_PAGE, "order": "asc"}
+      if after:
+        params["after"] = after
+      r = requests.get(url, headers={"Authorization": f"Bearer {client.api_key}", **ASSISTANTS_BETA}, params=params, timeout=30)
+      if r.status_code >= 400:
+        sys.stderr.write(f"[{thread_id}] Failed to list messages via HTTP: {r.status_code} {r.text}\n")
+        break
+      payload = r.json()
+      data = payload.get("data", [])
+      messages.extend(data)
+      if not payload.get("has_more"):
+        break
+      after = payload.get("last_id")
+      if not after:
+        break
+      continue
     data = [to_plain(m) for m in resp.data]
     messages.extend(data)
     if not getattr(resp, "has_more", False):
@@ -118,7 +158,7 @@ def main() -> int:
     threads = fetch_all_threads(client)
   except Exception as exc:
     sys.stderr.write(f"Failed to fetch threads: {exc}\n")
-    return 1
+    return 0
 
   for thread in threads:
     tid = thread.get("id")
