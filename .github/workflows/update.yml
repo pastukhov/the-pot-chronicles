@@ -26,10 +26,11 @@ jobs:
         run: |
           pip install -r scripts/requirements.txt
 
-      - name: Fetch new chats
+      - name: Fetch new threads
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/fetch_chats.py
+          ASSISTANT_ID: ${{ secrets.ASSISTANT_ID }}
+        run: python scripts/fetch_threads.py
 
       - name: Extract recipes
         env:
