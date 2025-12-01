@@ -1,0 +1,35 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  <article class="card">
+    <h2>{{ .Title }}</h2>
+    <p class="meta">
+      {{ .Date.Format "02 MMMM 2006, 15:04" }}
+      {{ with .Params.time }} · {{ . }}{{ end }}
+      {{ with .Params.temperature }} · {{ . }}{{ end }}
+      {{ with .Params.categories }} · {{ delimit . ", " | title }}{{ end }}
+    </p>
+    {{ with .Params.image }}
+      <img class="hero" src="{{ . | relURL }}" alt="{{ $.Title }}">
+    {{ end }}
+    {{ with .Params.ingredients }}
+      <h3>Ингредиенты</h3>
+      <ul class="ingredients">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    {{ end }}
+    {{ with .Params.steps }}
+      <h3>Шаги</h3>
+      <ol class="steps">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ol>
+    {{ end }}
+    {{ with .Params.notes }}
+      <h3>Примечания</h3>
+      <p>{{ . }}</p>
+    {{ end }}
+    <p class="meta">
+      Источник: {{ with .Params.source_thread }}thread {{ . }}{{ end }}
+      {{ with .Params.source_message_id }} · message {{ . }}{{ end }}
+    </p>
+  </article>
+{{ end }}
