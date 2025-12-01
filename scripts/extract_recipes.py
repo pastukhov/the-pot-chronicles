@@ -227,7 +227,7 @@ def main() -> int:
     seen_ids.add(msg_id)
     found += 1
   sys.stderr.write(f"Recipes written: {found}\n")
-  return 0 if found else 1
+  return 0
 
 
 if __name__ == "__main__":
