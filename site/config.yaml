@@ -1,18 +1,23 @@
-baseURL: 'https://pastukhov.github.io/the-pot-chronicles/'
-languageCode: 'ru'
-title: 'Хроники Кастрюли'
+baseURL: https://pastukhov.github.io/the-pot-chronicles/
+languageCode: ru
+title: Хроники Кастрюли
 pagination:
   pagerSize: 20
-
 disableKinds:
-  - 'RSS'
-
+- RSS
 module:
   mounts:
-    - source: '../recipes'
-      target: 'content/recipes'
-    - source: '../images'
-      target: 'static/images'
-
+  - source: ../recipes
+    target: content/recipes
+  - source: ../images
+    target: static/images
 params:
-  subtitle: 'Автоматически собранные рецепты из истории чатов'
+  subtitle: Автоматически собранные рецепты из истории чатов
+menu:
+  main:
+  - name: Разное
+    url: /categories/разное/
+    weight: 1
+  - name: Все рецепты
+    url: /recipes/
+    weight: 999
