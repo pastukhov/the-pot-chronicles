@@ -1,181 +1,126 @@
-"""Fetch threads for a specific assistant and store messages in raw_threads/."""
+"""Fetch threads for a specific assistant (Assistants v2) and store unseen threads."""
 from __future__ import annotations
 
 import json
 import os
 import sys
-import time
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 
 import requests
-from openai import OpenAI
 
 ROOT = Path(__file__).resolve().parent.parent
-RAW_DIR = ROOT / "raw_threads"
+RAW_DIR = ROOT / "site" / "raw_threads"
+API_BASE = "https://api.openai.com/v1"
 API_KEY_ENV = "OPENAI_API_KEY"
 ASSISTANT_ID_ENV = "ASSISTANT_ID"
-MAX_PAGE = 100
-API_BASE = os.getenv("OPENAI_API_BASE", "https://api.openai.com/v1").rstrip("/")
-ASSISTANTS_BETA = {"OpenAI-Beta": "assistants=v2"}
+TIMEOUT = 30
+HEADERS_TEMPLATE = {"OpenAI-Beta": "assistants=v2"}
+
+
+def env_or_exit() -> tuple[str, str]:
+  api_key = os.getenv(API_KEY_ENV, "").strip()
+  if not api_key or not api_key.startswith("sk-"):
+    sys.stderr.write("Invalid or missing OPENAI_API_KEY. Use a Platform API key (sk-...).\n")
+    raise SystemExit(1)
+  assistant_id = os.getenv(ASSISTANT_ID_ENV, "").strip()
+  if not assistant_id:
+    sys.stderr.write("ASSISTANT_ID environment variable missing.\n")
+    raise SystemExit(1)
+  return api_key, assistant_id
 
 
 def ensure_dirs() -> None:
   RAW_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def to_plain(obj: Any) -> Dict[str, Any]:
-  if hasattr(obj, "model_dump"):
-    try:
-      return obj.model_dump()
-    except Exception:
-      pass
-  if hasattr(obj, "model_dump_json"):
-    try:
-      return json.loads(obj.model_dump_json())
-    except Exception:
-      pass
-  try:
-    return json.loads(json.dumps(obj, default=str))
-  except Exception:
-    return {"raw": str(obj)}
+def request_json(method: str, url: str, api_key: str, params: Dict[str, Any] | None = None) -> Dict[str, Any]:
+  headers = {**HEADERS_TEMPLATE, "Authorization": f"Bearer {api_key}"}
+  resp = requests.request(method, url, headers=headers, params=params, timeout=TIMEOUT)
+  if resp.status_code in (401, 403):
+    sys.stderr.write("Unauthorized: OPENAI_API_KEY is invalid or not a Platform key.\n")
+    raise SystemExit(1)
+  if resp.status_code >= 400:
+    sys.stderr.write(f"API error {resp.status_code}: {resp.text}\n")
+    raise SystemExit(1)
+  return resp.json()
 
 
-def merge_messages(existing: List[Dict[str, Any]], fresh: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-  seen = {msg.get("id") for msg in existing}
-  merged = existing[:]
-  for msg in fresh:
-    msg_id = msg.get("id")
-    if msg_id in seen:
-      continue
-    merged.append(msg)
-    seen.add(msg_id)
-  merged.sort(key=lambda m: m.get("created_at", 0))
-  return merged
-
-
-def fetch_all_threads(client: OpenAI, assistant_id: str) -> List[Dict[str, Any]]:
+def list_threads(api_key: str, assistant_id: str) -> List[Dict[str, Any]]:
   threads: List[Dict[str, Any]] = []
   after: str | None = None
   while True:
-    try:
-      resp = client.beta.threads.list(limit=MAX_PAGE, after=after)
-    except TypeError:
-      resp = client.beta.threads.list(limit=MAX_PAGE)
-    except AttributeError:
-      url = f"{API_BASE}/threads"
-      params = {"limit": MAX_PAGE, "order": "desc", "assistant_id": assistant_id}
-      if after:
-        params["after"] = after
-      r = requests.get(url, headers={"Authorization": f"Bearer {client.api_key}", **ASSISTANTS_BETA}, params=params, timeout=30)
-      if r.status_code in (401, 403):
-        sys.stderr.write("Failed to list threads via HTTP: unauthorized (check OPENAI_API_KEY and key type supports Assistants v2)\n")
-        raise SystemExit(1)
-      if r.status_code >= 400:
-        sys.stderr.write(f"Failed to list threads via HTTP: {r.status_code} {r.text}\n")
-        break
-      payload = r.json()
-      data = payload.get("data", [])
-      threads.extend(data)
-      if not payload.get("has_more"):
-        break
-      after = payload.get("last_id")
-      if not after:
-        break
-      continue
-    data = [to_plain(t) for t in resp.data]
+    params = {"limit": 100}
+    if after:
+      params["after"] = after
+    url = f"{API_BASE}/assistants/{assistant_id}/threads"
+    payload = request_json("GET", url, api_key, params=params)
+    data = payload.get("data", [])
     threads.extend(data)
-    if not getattr(resp, "has_more", False):
+    if not payload.get("has_more"):
       break
-    after = getattr(resp, "last_id", None)
+    after = payload.get("last_id")
     if not after:
       break
-  filtered = [t for t in threads if str(t.get("assistant_id", "")).strip() == assistant_id]
-  return filtered
+  return threads
 
 
-def fetch_messages(client: OpenAI, thread_id: str) -> List[Dict[str, Any]]:
+def list_messages(api_key: str, thread_id: str) -> List[Dict[str, Any]]:
   messages: List[Dict[str, Any]] = []
   after: str | None = None
   while True:
-    try:
-      resp = client.beta.threads.messages.list(thread_id=thread_id, limit=MAX_PAGE, after=after, order="asc")
-    except TypeError:
-      resp = client.beta.threads.messages.list(thread_id=thread_id, limit=MAX_PAGE, order="asc")
-    except AttributeError:
-      url = f"{API_BASE}/threads/{thread_id}/messages"
-      params = {"limit": MAX_PAGE, "order": "asc"}
-      if after:
-        params["after"] = after
-      r = requests.get(url, headers={"Authorization": f"Bearer {client.api_key}", **ASSISTANTS_BETA}, params=params, timeout=30)
-      if r.status_code in (401, 403):
-        sys.stderr.write(f"[{thread_id}] Failed to list messages via HTTP: unauthorized\n")
-        raise SystemExit(1)
-      if r.status_code >= 400:
-        sys.stderr.write(f"[{thread_id}] Failed to list messages via HTTP: {r.status_code} {r.text}\n")
-        break
-      payload = r.json()
-      data = payload.get("data", [])
-      messages.extend(data)
-      if not payload.get("has_more"):
-        break
-      after = payload.get("last_id")
-      if not after:
-        break
-      continue
-    data = [to_plain(m) for m in resp.data]
+    params = {"limit": 100, "order": "asc"}
+    if after:
+      params["after"] = after
+    url = f"{API_BASE}/threads/{thread_id}/messages"
+    payload = request_json("GET", url, api_key, params=params)
+    data = payload.get("data", [])
     messages.extend(data)
-    if not getattr(resp, "has_more", False):
+    if not payload.get("has_more"):
       break
-    after = getattr(resp, "last_id", None)
+    after = payload.get("last_id")
     if not after:
       break
   return messages
 
 
-def save_thread(thread: Dict[str, Any], messages: List[Dict[str, Any]]) -> None:
-  thread_id = thread.get("id")
-  if not thread_id:
-    return
+def save_thread(thread_id: str, messages: List[Dict[str, Any]]) -> None:
   path = RAW_DIR / f"{thread_id}.json"
-  existing: Dict[str, Any] = {}
   if path.exists():
-    try:
-      existing = json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-      existing = {}
-  merged_messages = merge_messages(existing.get("messages", []), messages)
+    return
   payload = {
-    "thread": thread,
-    "fetched_at": int(time.time()),
-    "messages": merged_messages,
+    "thread_id": thread_id,
+    "messages": messages,
+    "fetched_at": datetime.now(tz=timezone.utc).isoformat(),
   }
   path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def main() -> int:
-  api_key = os.getenv(API_KEY_ENV)
-  assistant_id = os.getenv(ASSISTANT_ID_ENV)
-  if not api_key:
-    sys.stderr.write(f"Missing {API_KEY_ENV}\n")
-    return 1
-  if not assistant_id:
-    sys.stderr.write(f"Missing {ASSISTANT_ID_ENV}\n")
-    return 1
-
+  api_key, assistant_id = env_or_exit()
   ensure_dirs()
-  client = OpenAI(api_key=api_key)
 
-  threads = fetch_all_threads(client, assistant_id)
-  sys.stderr.write(f"Fetched {len(threads)} threads for assistant {assistant_id}\n")
+  threads = list_threads(api_key, assistant_id)
+  discovered = len(threads)
+  new_saved = 0
+  skipped = 0
 
   for thread in threads:
-    tid = thread.get("id")
+    tid = str(thread.get("id") or "").strip()
     if not tid:
       continue
-    messages = fetch_messages(client, tid)
-    save_thread(thread, messages)
-  sys.stderr.write("Done fetching threads\n")
+    path = RAW_DIR / f"{tid}.json"
+    if path.exists():
+      skipped += 1
+      continue
+    messages = list_messages(api_key, tid)
+    save_thread(tid, messages)
+    new_saved += 1
+
+  sys.stderr.write(f"Threads discovered: {discovered}\n")
+  sys.stderr.write(f"New threads saved: {new_saved}\n")
+  sys.stderr.write(f"Existing threads skipped: {skipped}\n")
   return 0
 
 
