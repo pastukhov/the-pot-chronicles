@@ -1,7 +1,8 @@
 baseURL: "https://example.com/"
 languageCode: "ru"
 title: "Хроники Кастрюли"
-paginate: 20
+pagination:
+  pagerSize: 20
 
 disableKinds:
   - "RSS"
