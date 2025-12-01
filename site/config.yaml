@@ -1,18 +1,18 @@
-baseURL: "https://example.com/"
-languageCode: "ru"
-title: "Хроники Кастрюли"
+baseURL: 'https://pastukhov.github.io/the-pot-chronicles/'
+languageCode: 'ru'
+title: 'Хроники Кастрюли'
 pagination:
   pagerSize: 20
 
 disableKinds:
-  - "RSS"
+  - 'RSS'
 
 module:
   mounts:
-    - source: "../recipes"
-      target: "content/recipes"
-    - source: "../images"
-      target: "static/images"
+    - source: '../recipes'
+      target: 'content/recipes'
+    - source: '../images'
+      target: 'static/images'
 
 params:
-  subtitle: "Автоматически собранные рецепты из истории чатов"
+  subtitle: 'Автоматически собранные рецепты из истории чатов'
