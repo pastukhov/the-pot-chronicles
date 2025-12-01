@@ -179,6 +179,7 @@ def main() -> int:
   client = OpenAI(api_key=api_key)
   seen_ids = existing_message_ids()
 
+  found = 0
   for thread_id, msg in load_raw_messages():
     msg_id = str(msg.get("id"))
     if not msg_id or msg_id in seen_ids:
@@ -224,7 +225,9 @@ def main() -> int:
       sys.stderr.write(f"[{msg_id}] failed to write recipe: {exc}\n")
       continue
     seen_ids.add(msg_id)
-  return 0
+    found += 1
+  sys.stderr.write(f"Recipes written: {found}\n")
+  return 0 if found else 1
 
 
 if __name__ == "__main__":

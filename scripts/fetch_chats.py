@@ -158,8 +158,9 @@ def main() -> int:
     threads = fetch_all_threads(client)
   except Exception as exc:
     sys.stderr.write(f"Failed to fetch threads: {exc}\n")
-    return 0
+    return 1
 
+  sys.stderr.write(f"Fetched {len(threads)} threads\n")
   for thread in threads:
     tid = thread.get("id")
     if not tid:
@@ -170,6 +171,7 @@ def main() -> int:
       sys.stderr.write(f"[{tid}] failed to fetch messages: {exc}\n")
       continue
     save_thread(thread, messages)
+  sys.stderr.write("Done fetching threads\n")
   return 0
 
 
