@@ -51,10 +51,10 @@ def list_threads(api_key: str, assistant_id: str) -> List[Dict[str, Any]]:
   threads: List[Dict[str, Any]] = []
   after: str | None = None
   while True:
-    params = {"limit": 100}
+    params = {"limit": 100, "assistant_id": assistant_id}
     if after:
       params["after"] = after
-    url = f"{API_BASE}/assistants/{assistant_id}/threads"
+    url = f"{API_BASE}/threads"
     payload = request_json("GET", url, api_key, params=params)
     data = payload.get("data", [])
     threads.extend(data)
