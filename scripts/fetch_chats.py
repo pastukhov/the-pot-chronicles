@@ -67,6 +67,11 @@ def fetch_all_threads(client: OpenAI) -> List[Dict[str, Any]]:
       if after:
         params["after"] = after
       r = requests.get(url, headers={"Authorization": f"Bearer {client.api_key}", **ASSISTANTS_BETA}, params=params, timeout=30)
+      if r.status_code in (401, 403):
+        sys.stderr.write(
+          "Failed to list threads via HTTP: unauthorized (check OPENAI_API_KEY and key type supports Assistants v2)\n"
+        )
+        raise SystemExit(1)
       if r.status_code >= 400:
         sys.stderr.write(f"Failed to list threads via HTTP: {r.status_code} {r.text}\n")
         break
