@@ -8,7 +8,7 @@
         {{ with .Params.categories }} · {{ delimit . ", " | title }}{{ end }}
       </p>
       {{ with .Params.image }}
-        <img class="hero" src="{{ . | relURL }}" alt="{{ $.Title }}">
+        <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
       {{ end }}
       {{ with .Summary }}
         <p>{{ . }}</p>
