@@ -84,17 +84,23 @@ def main() -> int:
     meta, body = read_front_matter(path)
     if not meta:
       continue
-    if meta.get("image"):
-      img_path = Path(meta["image"].lstrip("/"))
-      if (ROOT / img_path).exists():
-        continue
     title = meta.get("title") or path.stem
     ingredients = meta.get("ingredients") or []
     prompt = PROMPT_TEMPLATE.format(title=title, ingredients=", ".join(ingredients))
     created_dt = parse_date(meta, path)
     image_fs_path = build_image_path(title, created_dt)
+    new_image_rel = str(image_fs_path.relative_to(ROOT)).replace("\\", "/")
+
+    current_image = meta.get("image")
+    if current_image:
+      current_fs = ROOT / str(current_image).lstrip("/")
+      if current_fs.exists():
+        meta["image"] = new_image_rel
+        write_front_matter(path, meta, body)
+        continue
+
     if image_fs_path.exists():
-      meta["image"] = "/" + str(image_fs_path.relative_to(ROOT)).replace("\\", "/")
+      meta["image"] = new_image_rel
       write_front_matter(path, meta, body)
       continue
     try:
@@ -104,7 +110,7 @@ def main() -> int:
       continue
     image_fs_path.parent.mkdir(parents=True, exist_ok=True)
     image_fs_path.write_bytes(image_bytes)
-    meta["image"] = "/" + str(image_fs_path.relative_to(ROOT / "site")).replace("\\", "/")
+    meta["image"] = new_image_rel
     write_front_matter(path, meta, body)
   return 0
 
