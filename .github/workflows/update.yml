@@ -26,22 +26,8 @@ jobs:
         run: |
           pip install -r scripts/requirements.txt
 
-      - name: Fetch new threads
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ASSISTANT_ID: ${{ vars.ASSISTANT_ID }}
-          OPENAI_PROJECT: ${{ vars.OPENAI_PROJECT }}
-        run: python scripts/fetch_threads.py
-
-      - name: Extract recipes
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/extract_recipes.py
-
-      - name: Generate images
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/generate_images.py
+      - name: Skip import (disabled)
+        run: echo "Import of threads/recipes is disabled in this workflow."
 
       - name: Rebuild menu
         run: python scripts/rebuild_menu.py
