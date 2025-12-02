@@ -29,8 +29,8 @@ if [[ -z "${OPENAI_API_KEY:-}" ]]; then
   exit 1
 fi
 
-echo "Importing recipes from $EXPORT_FILE ..."
-python "$ROOT_DIR/scripts/import_conversations.py"
+#echo "Importing recipes from $EXPORT_FILE ..."
+#python "$ROOT_DIR/scripts/import_conversations.py"
 
 echo "Generating images ..."
 python "$ROOT_DIR/scripts/generate_images.py"

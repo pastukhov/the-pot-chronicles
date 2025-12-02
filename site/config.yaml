@@ -15,9 +15,33 @@ params:
   subtitle: Автоматически собранные рецепты из истории чатов
 menu:
   main:
-  - name: Разное
-    url: /categories/разное/
+  - name: Beverages
+    url: /categories/beverages/
     weight: 1
+  - name: Desserts
+    url: /categories/desserts/
+    weight: 2
+  - name: Experiments
+    url: /categories/experiments/
+    weight: 3
+  - name: Fermentation
+    url: /categories/fermentation/
+    weight: 4
+  - name: Fish
+    url: /categories/fish/
+    weight: 5
+  - name: Meat
+    url: /categories/meat/
+    weight: 6
+  - name: Salad
+    url: /categories/salad/
+    weight: 7
+  - name: Soup
+    url: /categories/soup/
+    weight: 8
+  - name: Vegetables
+    url: /categories/vegetables/
+    weight: 9
   - name: Все рецепты
     url: /recipes/
     weight: 999
