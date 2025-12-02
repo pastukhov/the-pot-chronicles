@@ -38,6 +38,19 @@ EXTRACTION_PROMPT = (
   "}"
 )
 
+MULTI_EXTRACTION_PROMPT = (
+  "Extract every distinct cooking recipe from the text. Output a JSON array where each item matches:\n"
+  "{\n"
+  '  "title": "",\n'
+  '  "ingredients": [],\n'
+  '  "steps": [],\n'
+  '  "time": "",\n'
+  '  "temperature": "",\n'
+  '  "notes": ""\n'
+  "}\n"
+  "Return at least one item only if there is a recipe; otherwise return an empty array []."
+)
+
 COMPLETION_PROMPT = (
   "You are improving an incomplete recipe. Using the provided text, produce a complete cooking recipe. "
   "If details are missing, infer plausible ingredients and steps consistent with the dish. "
@@ -81,8 +94,9 @@ def existing_message_ids() -> set[str]:
   for path in RECIPES_DIR.glob("**/*.md"):
     meta = read_front_matter(path)
     msg_id = meta.get("source_message_id")
+    idx = meta.get("source_recipe_index", 0)
     if msg_id:
-      ids.add(str(msg_id))
+      ids.add(f"{msg_id}:{idx}")
   return ids
 
 
@@ -164,6 +178,27 @@ def extract_structure(client: OpenAI, text: str) -> Dict[str, Any]:
     return {}
 
 
+def extract_structures(client: OpenAI, text: str) -> List[Dict[str, Any]]:
+  resp = client.chat.completions.create(
+    model=MODEL,
+    max_tokens=1200,
+    messages=[
+      {"role": "system", "content": MULTI_EXTRACTION_PROMPT},
+      {"role": "user", "content": text[:6000]},
+    ],
+  )
+  content = resp.choices[0].message.content
+  try:
+    data = json.loads(content)
+    if isinstance(data, dict):
+      return [data]
+    if isinstance(data, list):
+      return data
+    return []
+  except Exception:
+    return []
+
+
 def complete_structure(client: OpenAI, text: str) -> Dict[str, Any]:
   resp = client.chat.completions.create(
     model=MODEL,
@@ -188,8 +223,10 @@ def is_complete(structured: Dict[str, Any]) -> bool:
   return bool(title) and len(ings) >= 2 and len(steps) >= 2
 
 
-def build_path(title: str, created: datetime) -> Path:
+def build_path(title: str, created: datetime, suffix: int | None = None) -> Path:
   slug = slugify(title) or "recipe"
+  if suffix is not None and suffix > 0:
+    slug = f"{slug}-{suffix}"
   return RECIPES_DIR / created.strftime("%Y/%m/%d") / f"{slug}.md"
 
 
@@ -258,48 +295,60 @@ def main() -> int:
       if not is_recipe:
         continue
       try:
-        structured = extract_structure(client, text)
+        recipes = extract_structures(client, text)
       except Exception as exc:
         sys.stderr.write(f"[{msg_id}] extraction error: {exc}\n")
         continue
-      if not is_complete(structured):
-        filled = complete_structure(client, text)
-        if is_complete(filled):
-          structured = filled
-        else:
-          sys.stderr.write(f"[{msg_id}] skipped: incomplete recipe after completion\n")
+      if not recipes:
+        sys.stderr.write(f"[{msg_id}] no recipes found in message\n")
+        continue
+
+      for idx, structured in enumerate(recipes):
+        key = f"{msg_id}:{idx}"
+        if key in seen_ids:
           continue
-      title = structured.get("title") or "Без названия"
-      try:
-        created_dt = datetime.fromtimestamp(float(created_ts), tz=timezone.utc)
-      except Exception:
-        created_dt = datetime.fromtimestamp(0, tz=timezone.utc)
-      path = build_path(title, created_dt)
-      if path.exists():
-        seen_ids.add(msg_id)
-        continue
-      payload = {
-        "title": title,
-        "date": created_dt.isoformat(),
-        "tags": ["recipe"] + categories,
-        "categories": categories,
-        "source_thread": conv_id,
-        "source_message_id": msg_id,
-        "image": structured.get("image"),
-        "temperature": structured.get("temperature"),
-        "time": structured.get("time"),
-        "notes": structured.get("notes"),
-        "ingredients": structured.get("ingredients"),
-        "steps": structured.get("steps"),
-      }
-      try:
-        write_recipe(path, payload)
-      except Exception as exc:
-        sys.stderr.write(f"[{msg_id}] failed to write recipe: {exc}\n")
-        continue
-      seen_ids.add(msg_id)
-      written += 1
-      sys.stderr.write(f"[{msg_id}] recipe saved to {path}\n")
+        if not is_complete(structured):
+          filled = complete_structure(client, text)
+          if is_complete(filled):
+            structured = filled
+          else:
+            sys.stderr.write(f"[{msg_id}:{idx}] skipped: incomplete recipe after completion\n")
+            continue
+
+        title = structured.get("title") or "Без названия"
+        try:
+          created_dt = datetime.fromtimestamp(float(created_ts), tz=timezone.utc)
+        except Exception:
+          created_dt = datetime.fromtimestamp(0, tz=timezone.utc)
+
+        path = build_path(title, created_dt, suffix=idx if idx > 0 else None)
+        if path.exists():
+          seen_ids.add(key)
+          continue
+
+        payload = {
+          "title": title,
+          "date": created_dt.isoformat(),
+          "tags": ["recipe"] + categories,
+          "categories": categories,
+          "source_thread": conv_id,
+          "source_message_id": msg_id,
+          "source_recipe_index": idx,
+          "image": structured.get("image"),
+          "temperature": structured.get("temperature"),
+          "time": structured.get("time"),
+          "notes": structured.get("notes"),
+          "ingredients": structured.get("ingredients"),
+          "steps": structured.get("steps"),
+        }
+        try:
+          write_recipe(path, payload)
+        except Exception as exc:
+          sys.stderr.write(f"[{msg_id}:{idx}] failed to write recipe: {exc}\n")
+          continue
+        seen_ids.add(key)
+        written += 1
+        sys.stderr.write(f"[{msg_id}:{idx}] recipe saved to {path}\n")
 
   sys.stderr.write(f"Messages scanned: {scanned}\n")
   sys.stderr.write(f"Recipes written: {written}\n")
