@@ -104,7 +104,7 @@ def main() -> int:
       continue
     image_fs_path.parent.mkdir(parents=True, exist_ok=True)
     image_fs_path.write_bytes(image_bytes)
-    meta["image"] = "/" + str(image_fs_path.relative_to(ROOT)).replace("\\", "/")
+    meta["image"] = "/" + str(image_fs_path.relative_to(ROOT / "site")).replace("\\", "/")
     write_front_matter(path, meta, body)
   return 0
 
