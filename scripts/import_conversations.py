@@ -197,6 +197,8 @@ def main() -> int:
   written = 0
   scanned = 0
 
+  sys.stderr.write(f"Conversations loaded: {len(conversations)}\n")
+
   for conv in conversations:
     conv_id = str(conv.get("id") or conv.get("conversation_id") or "")
     for conv_id, msg in iter_messages(conv):
@@ -246,6 +248,7 @@ def main() -> int:
         continue
       seen_ids.add(msg_id)
       written += 1
+      sys.stderr.write(f"[{msg_id}] recipe saved to {path}\n")
 
   sys.stderr.write(f"Messages scanned: {scanned}\n")
   sys.stderr.write(f"Recipes written: {written}\n")
