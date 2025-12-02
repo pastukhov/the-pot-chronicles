@@ -31,7 +31,7 @@ steps:
 - Добавь соевый и устричный соус, сахар и немного соли, перемешай.
 - Вложи хризантему и готовь ещё 30–40 секунд, пока она лишь слегка увянет.
 - Сними с огня и сбрызни кунжутным маслом.
-image: /images/2025/10/14/teplye-ovoshchi-vok-s-bak-choem-i-ovoshchnoi-khrizantemoi.jpg
+image: images/2025/10/14/teplye-ovoshchi-vok-s-bak-choem-i-ovoshchnoi-khrizantemoi.jpg
 ---
 
 ## Ингредиенты

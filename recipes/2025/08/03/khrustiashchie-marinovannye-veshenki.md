@@ -30,7 +30,7 @@ steps:
 - Добавить специи по вкусу.
 - Перелить грибы в стерилизованные банки и залить маринадом.
 - Закрыть банки крышками и оставить остывать.
-image: /images/2025/08/03/khrustiashchie-marinovannye-veshenki.jpg
+image: images/2025/08/03/khrustiashchie-marinovannye-veshenki.jpg
 ---
 
 ## Ингредиенты

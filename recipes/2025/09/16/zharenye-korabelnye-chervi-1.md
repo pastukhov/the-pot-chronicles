@@ -26,7 +26,7 @@ steps:
 - Разогреть масло на сковороде.
 - Обжарить червей до золотистой корочки с обеих сторон.
 - Подавать горячими с любимыми соусами.
-image: /images/2025/09/16/zharenye-korabelnye-chervi.jpg
+image: images/2025/09/16/zharenye-korabelnye-chervi.jpg
 ---
 
 ## Ингредиенты

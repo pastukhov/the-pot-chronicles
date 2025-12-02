@@ -24,7 +24,7 @@ steps:
 - Смешать карамелизованную тыкву с другими ингредиентами.
 - Выпечь чизкейк до кремовости.
 - Остудить перед подачей.
-image: /images/2025/11/07/usovershenstvovannyi-baskskii-tykvennyi-chizkeik.jpg
+image: images/2025/11/07/usovershenstvovannyi-baskskii-tykvennyi-chizkeik.jpg
 ---
 
 ## Ингредиенты

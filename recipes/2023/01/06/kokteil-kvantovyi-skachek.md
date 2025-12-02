@@ -23,7 +23,7 @@ steps:
 - Процедите в бокал.
 - Добавьте газированную воду.
 - Украсьте лимонным скибочкой.
-image: /images/2023/01/06/kokteil-kvantovyi-skachek.jpg
+image: images/2023/01/06/kokteil-kvantovyi-skachek.jpg
 ---
 
 ## Ингредиенты

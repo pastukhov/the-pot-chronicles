@@ -24,7 +24,7 @@ steps:
 - Замочить в смеси уксуса с водой 50/50.
 - Откинуть помидоры и поставить под пресс на сутки.
 - Приправить специями, солью, чесноком и оливковым маслом.
-image: /images/2025/10/02/zagotovka-nezrelykh-pomidorov.jpg
+image: images/2025/10/02/zagotovka-nezrelykh-pomidorov.jpg
 ---
 
 ## Ингредиенты

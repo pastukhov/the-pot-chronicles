@@ -21,7 +21,7 @@ steps:
 - Добавьте измельченный чеснок и обжаривайте ещё минуту.
 - Добавьте нарезанные чили и помидоры.
 - Готовьте на среднем огне, пока помидоры не станут мягкими.
-image: /images/2025/10/30/salsa-iz-obozhzhennykh-luka-i-pomidorov.jpg
+image: images/2025/10/30/salsa-iz-obozhzhennykh-luka-i-pomidorov.jpg
 ---
 
 ## Ингредиенты

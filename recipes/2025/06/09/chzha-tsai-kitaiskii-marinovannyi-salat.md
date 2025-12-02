@@ -26,7 +26,7 @@ steps:
   Перемешайте до растворения сахара и соли.
 - Добавьте нарезанные овощи в маринад, тщательно перемешайте и оставьте на 30 минут,
   чтобы они впитали вкус.
-image: /images/2025/06/09/chzha-tsai-kitaiskii-marinovannyi-salat.jpg
+image: images/2025/06/09/chzha-tsai-kitaiskii-marinovannyi-salat.jpg
 ---
 
 ## Ингредиенты

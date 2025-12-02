@@ -27,7 +27,7 @@ steps:
 - Закрыть банку крышкой и оставить при комнатной температуре для молочнокислого брожения
   на 5-7 дней.
 - После завершения брожения соус можно использовать.
-image: /images/2025/08/31/ostryi-sous-s-persikami-i-pertsem-trinidad-moruga-scorpion.jpg
+image: images/2025/08/31/ostryi-sous-s-persikami-i-pertsem-trinidad-moruga-scorpion.jpg
 ---
 
 ## Ингредиенты

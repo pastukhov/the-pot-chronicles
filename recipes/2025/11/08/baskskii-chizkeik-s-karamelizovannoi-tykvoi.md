@@ -29,7 +29,7 @@ steps:
 - Добавьте карамелизованную тыкву в смесь и хорошенько перемешайте. Перелейте тесто
   в форму и выпекайте в разогретой до 180°C духовке примерно 40-50 минут или до появления
   золотистой корочки.
-image: /images/2025/11/08/baskskii-chizkeik-s-karamelizovannoi-tykvoi.jpg
+image: images/2025/11/08/baskskii-chizkeik-s-karamelizovannoi-tykvoi.jpg
 ---
 
 ## Ингредиенты

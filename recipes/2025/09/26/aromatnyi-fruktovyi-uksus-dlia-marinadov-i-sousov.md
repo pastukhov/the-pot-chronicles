@@ -23,7 +23,7 @@ steps:
 - Смешать фрукты с уксусностью в банке.
 - Добавить воду и сахар, тщательно перемешать.
 - Закрыть банку крышкой с клапаном или марлей и оставить на ферментацию.
-image: /images/2025/09/26/aromatnyi-fruktovyi-uksus-dlia-marinadov-i-sousov.jpg
+image: images/2025/09/26/aromatnyi-fruktovyi-uksus-dlia-marinadov-i-sousov.jpg
 ---
 
 ## Ингредиенты

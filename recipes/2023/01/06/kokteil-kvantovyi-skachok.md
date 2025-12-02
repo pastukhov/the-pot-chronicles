@@ -22,7 +22,7 @@ steps:
 - Процедите смесь в высокий стакан.
 - Добавьте сверху пиво.
 - Украсьте коктейль вишней или ломтиком цитрусового фрукта.
-image: /images/2023/01/06/kokteil-kvantovyi-skachok.jpg
+image: images/2023/01/06/kokteil-kvantovyi-skachok.jpg
 ---
 
 ## Ингредиенты

@@ -17,7 +17,7 @@ ingredients:
 steps:
 - Пробить кожу, петрушку и чеснок в блендере.
 - Залить мясо получившейся поомадкой.
-image: /images/2025/11/29/miaso-s-zeleniu-i-chesnokom.jpg
+image: images/2025/11/29/miaso-s-zeleniu-i-chesnokom.jpg
 ---
 
 ## Ингредиенты

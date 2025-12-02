@@ -20,7 +20,7 @@ steps:
 - Приготовить маринад из уксуса и лимона.
 - Замариновать корабельных червей в подготовленном маринаде.
 - Подавать сырыми.
-image: /images/2025/09/16/korabelnye-chervi-v-marinade.jpg
+image: images/2025/09/16/korabelnye-chervi-v-marinade.jpg
 ---
 
 ## Ингредиенты

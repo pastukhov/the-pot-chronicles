@@ -28,7 +28,7 @@ steps:
 - Упакуйте смесь в оболочку для колбасы.
 - Оставьте колбасу ферментироваться в темном и прохладном месте на несколько дней.
 - После окончания ферментации колбасу можно готовить или хранить.
-image: /images/2023/01/27/vetnamskaia-fermentirovannaia-kolbasa.jpg
+image: images/2023/01/27/vetnamskaia-fermentirovannaia-kolbasa.jpg
 ---
 
 ## Ингредиенты

@@ -32,7 +32,7 @@ steps:
 - Приправить соевым соусом, солью и перцем по вкусу.
 - Снять с огня и дать настояться 5 минут перед подачей.
 - Подавать с зеленью.
-image: /images/2025/11/30/sup-s-kim-chi-i-svinoi-lytkoi.jpg
+image: images/2025/11/30/sup-s-kim-chi-i-svinoi-lytkoi.jpg
 ---
 
 ## Ингредиенты

@@ -33,7 +33,7 @@ steps:
 - Залейте все водой, чтобы покрыть ингредиенты.
 - Доведите до кипения, затем уменьшите огонь и варите на медленном огне 2-3 часа.
 - После варки процедите бульон через сито.
-image: /images/2025/04/28/zapechennye-svinye-kosti-s-ovoshchami-dlia-bulona.jpg
+image: images/2025/04/28/zapechennye-svinye-kosti-s-ovoshchami-dlia-bulona.jpg
 ---
 
 ## Ингредиенты

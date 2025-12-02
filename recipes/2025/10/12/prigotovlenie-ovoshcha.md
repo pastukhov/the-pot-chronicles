@@ -20,7 +20,7 @@ steps:
 - Сильно посолить.
 - Прополоскать через полчаса.
 - Бланшировать в кипятке 2 минуты.
-image: /images/2025/10/12/prigotovlenie-ovoshcha.jpg
+image: images/2025/10/12/prigotovlenie-ovoshcha.jpg
 ---
 
 ## Ингредиенты

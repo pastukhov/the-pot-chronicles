@@ -30,7 +30,7 @@ steps:
 - Добавьте квашеную капусту в бульон вместе с нарезанными овощами.
 - Варите щи до мягкости овощей.
 - Подавайте горячими с кусочками лаваша или хлеба.
-image: /images/2025/11/30/russkie-shchi-iz-kvashenoi-kapusty.jpg
+image: images/2025/11/30/russkie-shchi-iz-kvashenoi-kapusty.jpg
 ---
 
 ## Ингредиенты
