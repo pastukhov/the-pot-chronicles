@@ -38,6 +38,20 @@ EXTRACTION_PROMPT = (
   "}"
 )
 
+COMPLETION_PROMPT = (
+  "You are improving an incomplete recipe. Using the provided text, produce a complete cooking recipe. "
+  "If details are missing, infer plausible ingredients and steps consistent with the dish. "
+  "Output strictly in JSON with non-empty title, at least 5 ingredients, and at least 3 steps:\n\n"
+  "{\n"
+  '  "title": "",\n'
+  '  "ingredients": [],\n'
+  '  "steps": [],\n'
+  '  "time": "",\n'
+  '  "temperature": "",\n'
+  '  "notes": ""\n'
+  "}"
+)
+
 
 def ensure_dirs() -> None:
   RECIPES_DIR.mkdir(parents=True, exist_ok=True)
@@ -150,6 +164,30 @@ def extract_structure(client: OpenAI, text: str) -> Dict[str, Any]:
     return {}
 
 
+def complete_structure(client: OpenAI, text: str) -> Dict[str, Any]:
+  resp = client.chat.completions.create(
+    model=MODEL,
+    max_tokens=700,
+    messages=[
+      {"role": "system", "content": COMPLETION_PROMPT},
+      {"role": "user", "content": text[:6000]},
+    ],
+  )
+  try:
+    return json.loads(resp.choices[0].message.content)
+  except Exception:
+    return {}
+
+
+def is_complete(structured: Dict[str, Any]) -> bool:
+  if not structured:
+    return False
+  title = (structured.get("title") or "").strip()
+  ings = structured.get("ingredients") or []
+  steps = structured.get("steps") or []
+  return bool(title) and len(ings) >= 2 and len(steps) >= 2
+
+
 def build_path(title: str, created: datetime) -> Path:
   slug = slugify(title) or "recipe"
   return RECIPES_DIR / created.strftime("%Y/%m/%d") / f"{slug}.md"
@@ -224,6 +262,13 @@ def main() -> int:
       except Exception as exc:
         sys.stderr.write(f"[{msg_id}] extraction error: {exc}\n")
         continue
+      if not is_complete(structured):
+        filled = complete_structure(client, text)
+        if is_complete(filled):
+          structured = filled
+        else:
+          sys.stderr.write(f"[{msg_id}] skipped: incomplete recipe after completion\n")
+          continue
       title = structured.get("title") or "Без названия"
       try:
         created_dt = datetime.fromtimestamp(float(created_ts), tz=timezone.utc)
