@@ -3,6 +3,21 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EXPORT_FILE="$ROOT_DIR/export/conversations.json"
+VENV_DIR="$ROOT_DIR/.venv"
+REQ_FILE="$ROOT_DIR/scripts/requirements.txt"
+
+if [[ ! -d "$VENV_DIR" ]]; then
+  echo "Creating virtualenv in $VENV_DIR ..."
+  python3 -m venv "$VENV_DIR"
+fi
+
+source "$VENV_DIR/bin/activate"
+
+if [[ -f "$REQ_FILE" ]]; then
+  echo "Installing dependencies ..."
+  pip install --upgrade pip >/dev/null
+  pip install -r "$REQ_FILE"
+fi
 
 if [[ ! -f "$EXPORT_FILE" ]]; then
   echo "Export file not found: $EXPORT_FILE" >&2
