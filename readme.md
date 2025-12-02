@@ -3,7 +3,7 @@
 Автоматическое извлечение рецептов из истории чат-диалогов через OpenAI Threads API, генерация иллюстраций и публикация статического сайта на Hugo.
 
 ## Структура
-- `scripts/` — Python-скрипты: импорт рецептов из экспортов ChatGPT, извлечение рецептов, генерация изображений, пересборка меню.
+- `scripts/` — Python-скрипты: загрузка тредов ассистента, извлечение рецептов, генерация изображений, пересборка меню; отдельный импорт из `export/conversations.json` для локального запуска.
 - `raw_threads/` — кэшированные JSON тредов.
 - `recipes/` — Markdown-рецепты (генерируются автоматически).
 - `images/` — сгенерированные иллюстрации.
@@ -11,13 +11,20 @@
 - `.github/workflows/` — CI: обновление рецептов и деплой.
 
 ## Локальный запуск
-Требуется Python 3.12+ и `OPENAI_API_KEY`. Для импорта нужен файл `export/conversations.json` (экспорт из ChatGPT).
+Требуется Python 3.12+ и `OPENAI_API_KEY`. Для автоматического обновления через ассистента также нужны `ASSISTANT_ID` (и опционально `OPENAI_PROJECT`).
 
 ```bash
 pip install -r scripts/requirements.txt
-python scripts/import_conversations.py
+python scripts/fetch_threads.py
+python scripts/extract_recipes.py
 python scripts/generate_images.py
 python scripts/rebuild_menu.py
+```
+
+### Импорт из экспорта ChatGPT (локально, не в CI)
+Поместите `export/conversations.json`, затем:
+```bash
+python scripts/import_conversations.py
 ```
 
 Для предпросмотра сайта:
