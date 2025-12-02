@@ -66,7 +66,6 @@ def generate_image(client: OpenAI, prompt: str) -> bytes:
     model=IMAGE_MODEL,
     prompt=prompt,
     size="1024x1024",
-    response_format="b64_json",
   )
   b64_data = resp.data[0].b64_json
   return base64.b64decode(b64_data)
