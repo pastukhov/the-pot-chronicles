@@ -201,6 +201,7 @@ def main() -> int:
 
   for conv in conversations:
     conv_id = str(conv.get("id") or conv.get("conversation_id") or "")
+    conv_created = conv.get("create_time") or 0
     for conv_id, msg in iter_messages(conv):
       msg_id = str(msg.get("id") or "")
       if not msg_id or msg_id in seen_ids:
@@ -208,6 +209,8 @@ def main() -> int:
       text, created_ts = message_text(msg)
       if not text:
         continue
+      if not created_ts:
+        created_ts = conv_created or 0
       scanned += 1
       try:
         is_recipe, categories = classify(client, text)
@@ -222,7 +225,10 @@ def main() -> int:
         sys.stderr.write(f"[{msg_id}] extraction error: {exc}\n")
         continue
       title = structured.get("title") or "Без названия"
-      created_dt = datetime.fromtimestamp(created_ts or datetime.now(tz=timezone.utc).timestamp(), tz=timezone.utc)
+      try:
+        created_dt = datetime.fromtimestamp(float(created_ts), tz=timezone.utc)
+      except Exception:
+        created_dt = datetime.fromtimestamp(0, tz=timezone.utc)
       path = build_path(title, created_dt)
       if path.exists():
         seen_ids.add(msg_id)
