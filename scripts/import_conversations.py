@@ -26,7 +26,7 @@ CLASSIFIER_PROMPT = (
 )
 
 EXTRACTION_PROMPT = (
-  "Extract a structured cooking recipe from the text.\n"
+  "Extract a structured cooking recipe from the text. Respond in Russian.\n"
   "Output strictly in the following JSON format:\n\n"
   "{\n"
   '  "title": "",\n'
@@ -39,7 +39,7 @@ EXTRACTION_PROMPT = (
 )
 
 MULTI_EXTRACTION_PROMPT = (
-  "Extract every distinct cooking recipe from the text. Output a JSON array where each item matches:\n"
+  "Extract every distinct cooking recipe from the text. Respond in Russian. Output a JSON array where each item matches:\n"
   "{\n"
   '  "title": "",\n'
   '  "ingredients": [],\n'
@@ -52,7 +52,7 @@ MULTI_EXTRACTION_PROMPT = (
 )
 
 COMPLETION_PROMPT = (
-  "You are improving an incomplete recipe. Using the provided text, produce a complete cooking recipe. "
+  "You are improving an incomplete recipe. Using the provided text, produce a complete cooking recipe in Russian. "
   "If details are missing, infer plausible ingredients and steps consistent with the dish. "
   "Output strictly in JSON with non-empty title, at least 5 ingredients, and at least 3 steps:\n\n"
   "{\n"
