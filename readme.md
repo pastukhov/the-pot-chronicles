@@ -3,7 +3,7 @@
 Автоматическое извлечение рецептов из истории чат-диалогов через OpenAI Threads API, генерация иллюстраций и публикация статического сайта на Hugo.
 
 ## Структура
-- `scripts/` — Python-скрипты: загрузка тредов, извлечение рецептов, генерация изображений, пересборка меню.
+- `scripts/` — Python-скрипты: импорт рецептов из экспортов ChatGPT, извлечение рецептов, генерация изображений, пересборка меню.
 - `raw_threads/` — кэшированные JSON тредов.
 - `recipes/` — Markdown-рецепты (генерируются автоматически).
 - `images/` — сгенерированные иллюстрации.
@@ -11,12 +11,11 @@
 - `.github/workflows/` — CI: обновление рецептов и деплой.
 
 ## Локальный запуск
-Требуется Python 3.12+, `OPENAI_API_KEY` и `ASSISTANT_ID` (ID ассистента "Pot Chronicles Recipe Assistant").
+Требуется Python 3.12+ и `OPENAI_API_KEY`. Для импорта нужен файл `export/conversations.json` (экспорт из ChatGPT).
 
 ```bash
 pip install -r scripts/requirements.txt
-python scripts/fetch_threads.py
-python scripts/extract_recipes.py
+python scripts/import_conversations.py
 python scripts/generate_images.py
 python scripts/rebuild_menu.py
 ```
@@ -29,7 +28,7 @@ hugo server
 ```
 
 ## CI/CD
-- `.github/workflows/update.yml` — каждые 6 часов (и вручную) тянет треды, извлекает рецепты, генерирует иллюстрации, обновляет меню и пушит изменения.
+- `.github/workflows/update.yml` — каждые 6 часов (и вручную) импортирует рецепты из `export/conversations.json`, генерирует иллюстрации, обновляет меню и пушит изменения.
 - `.github/workflows/hugo.yml` — сборка и публикация Hugo на GitHub Pages.
 
 ## Нотсы

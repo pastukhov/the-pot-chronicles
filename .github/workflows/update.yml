@@ -26,16 +26,10 @@ jobs:
         run: |
           pip install -r scripts/requirements.txt
 
-      - name: Fetch new threads
+      - name: Import recipes from export
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ASSISTANT_ID: ${{ vars.ASSISTANT_ID }}
-        run: python scripts/fetch_threads.py
-
-      - name: Extract recipes
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/extract_recipes.py
+        run: python scripts/import_conversations.py
 
       - name: Generate images
         env:
