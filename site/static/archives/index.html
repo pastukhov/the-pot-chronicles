@@ -4,9 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Архив рецептов</title>
-<style>body{font-family:Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:24px;}a{color:#f97316;} .card{max-width:960px;margin:0 auto;background:#111827;padding:20px;border-radius:12px;border:1px solid rgba(148,163,184,0.2);}h1,h2{margin:0 0 12px;}</style>
+<style>
+:root { --bg: #0f172a; --card: #111827; --accent: #f97316; --text: #e2e8f0; --muted: #94a3b8; }
+body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 24px 24px 24px 220px; }
+a { color: var(--accent); text-decoration: none; } a:hover { text-decoration: underline; }
+.card { max-width: 960px; margin: 0 auto; background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+.sidebar { position: fixed; top: 20px; left: 20px; width: 180px; background: rgba(17,24,39,0.9); border: 1px solid rgba(148,163,184,0.2); border-radius: 14px; padding: 14px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); backdrop-filter: blur(10px); }
+.sidebar h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: -0.01em; }
+.sidebar nav a { display: block; color: var(--text); padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(148,163,184,0.15); background: rgba(255,255,255,0.02); margin-bottom: 6px; text-decoration: none; transition: border-color 160ms ease, transform 160ms ease; }
+.sidebar nav a:hover { border-color: rgba(249,115,22,0.4); transform: translateY(-1px); }
+</style>
 </head>
 <body>
+<aside class="sidebar">
+<h3>Навигация</h3>
+<nav>
+<a href="https://pastukhov.github.io/the-pot-chronicles/">Главная</a>
+<a href="https://pastukhov.github.io/the-pot-chronicles/archives/">По датам</a>
+<a href="https://pastukhov.github.io/the-pot-chronicles/tags/">Теги</a>
+<a href="https://pastukhov.github.io/the-pot-chronicles/recipes/">Все рецепты</a>
+</nav>
+</aside>
 <div class="card">
 <h1>Архив рецептов</h1>
 <h2>2025</h2><ul>
