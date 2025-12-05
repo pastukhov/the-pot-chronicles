@@ -1,0 +1,25 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "main" }}
+  {{ $pages := where .Site.RegularPages "Section" "recipes" }}
+  {{ range $pages.ByDate.Reverse }}
+    <article class="card">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="meta">
+        {{ .Date.Format "02 MMMM 2006" }}
+        {{ with .Params.categories }} · {{ delimit . ", " | title }}{{ end }}
+      </p>
+      {{ with .Params.image }}
+        <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
+      {{ end }}
+      {{ with .Summary }}
+        <p>{{ . }}</p>
+      {{ else }}
+        {{ with .Params.ingredients }}
+          <p>{{ delimit (first 5 .) ", " }}{{ if gt (len .) 5 }}…{{ end }}</p>
+        {{ end }}
+      {{ end }}
+    </article>
+  {{ else }}
+    <p class="meta">Рецептов пока нет.</p>
+  {{ end }}
+{{ end }}

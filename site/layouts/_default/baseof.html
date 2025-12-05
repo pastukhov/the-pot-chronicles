@@ -20,10 +20,42 @@
       color: var(--text);
       font-family: var(--font);
       line-height: 1.6;
-      padding: 24px;
+      padding: 24px 24px 24px 220px;
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .sidebar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 180px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+    }
+    .sidebar h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .sidebar nav a {
+      display: block;
+      color: var(--text);
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 6px;
+      text-decoration: none;
+      transition: border-color 160ms ease, transform 160ms ease;
+    }
+    .sidebar nav a:hover {
+      border-color: rgba(249, 115, 22, 0.4);
+      transform: translateY(-1px);
+    }
     header {
       max-width: 960px;
       margin: 0 auto 32px;
@@ -38,25 +70,6 @@
       margin: 0 0 8px;
       font-size: clamp(28px, 4vw, 36px);
       letter-spacing: -0.02em;
-    }
-    nav {
-      margin-top: 8px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 15px;
-    }
-    nav a {
-      color: var(--text);
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      background: rgba(255,255,255,0.03);
-      transition: border-color 160ms ease, transform 160ms ease;
-    }
-    nav a:hover {
-      border-color: rgba(249, 115, 22, 0.4);
-      transform: translateY(-1px);
     }
     h2, h3 { letter-spacing: -0.01em; }
     p.subtitle { margin: 0; color: var(--muted); }
@@ -90,16 +103,18 @@
   </style>
 </head>
 <body>
+  <aside class="sidebar">
+    <h3>Навигация</h3>
+    <nav>
+      <a href="{{ .Site.BaseURL }}">Главная</a>
+      <a href="{{ .Site.BaseURL }}archives/">По датам</a>
+      <a href="{{ .Site.BaseURL }}tags/">Теги</a>
+      <a href="{{ .Site.BaseURL }}recipes/">Все рецепты</a>
+    </nav>
+  </aside>
   <header>
     <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
     <p class="subtitle">{{ .Site.Params.subtitle }}</p>
-    {{ with .Site.Menus.main }}
-    <nav>
-      {{ range . }}
-        <a href="{{ .URL | absURL }}">{{ .Name }}</a>
-      {{ end }}
-    </nav>
-    {{ end }}
   </header>
   <main>
     {{ block "main" . }}{{ end }}
