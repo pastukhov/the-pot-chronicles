@@ -16,11 +16,11 @@ params:
 menu:
   main:
   - name: По датам
-    url: /archives/
+    url: /archives
     weight: 1
   - name: Теги
-    url: /tags/
+    url: /tags
     weight: 2
   - name: Все рецепты
-    url: /recipes/
+    url: /recipes
     weight: 999
