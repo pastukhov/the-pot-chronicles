@@ -9,6 +9,7 @@ REQ_FILE="$ROOT_DIR/scripts/requirements.txt"
 if [[ ! -d "$VENV_DIR" ]]; then
   echo "Creating virtualenv in $VENV_DIR ..."
   python3 -m venv "$VENV_DIR"
+  "$VENV_DIR/bin/python" -m ensurepip --upgrade >/dev/null
 fi
 
 source "$VENV_DIR/bin/activate"
