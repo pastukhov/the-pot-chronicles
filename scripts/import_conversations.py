@@ -19,10 +19,11 @@ API_KEY_ENV = "OPENAI_API_KEY"
 MODEL = "gpt-4o-mini"
 
 CLASSIFIER_PROMPT = (
-  "You are a classifier. Determine if the following text contains a cooking recipe "
-  "and select high-level food categories such as soup, meat, fish, vegetables, fermentation, desserts, experiments, beverages.\n"
-  'Return JSON: {"is_recipe": true|false, "categories": ["soup", "meat", ...]}.\n'
-  "Use lowercase categories; return empty list if uncertain."
+  "Ты классификатор кулинарных сообщений. Определи, относится ли текст к кулинарии (рецепты, блюда, заготовки, технологии приготовления).\n"
+  "Всегда относить сообщения о еде/ингредиентах/способах приготовления к кулинарным, даже если рецепт неполный.\n"
+  "Выбери высокоуровневые категории: soup, meat, fish, vegetables, fermentation, desserts, experiments, beverages, salad, sauce, baking.\n"
+  'Верни JSON: {"is_recipe": true|false, "categories": ["soup", "meat", ...]}.\n'
+  "Используй нижний регистр категорий; если не уверен, ставь is_recipe=false и пустой список."
 )
 
 EXTRACTION_PROMPT = (
@@ -39,7 +40,8 @@ EXTRACTION_PROMPT = (
 )
 
 MULTI_EXTRACTION_PROMPT = (
-  "Extract every distinct cooking recipe from the text. Respond in Russian. Output a JSON array where each item matches:\n"
+  "Извлеки все отдельные кулинарные рецепты из текста. Если рецепт неполный, дострой его логично. Ответ на русском. "
+  "Верни JSON-массив, где каждый элемент:\n"
   "{\n"
   '  "title": "",\n'
   '  "ingredients": [],\n'
@@ -48,7 +50,7 @@ MULTI_EXTRACTION_PROMPT = (
   '  "temperature": "",\n'
   '  "notes": ""\n'
   "}\n"
-  "Return at least one item only if there is a recipe; otherwise return an empty array []."
+  "Если в тексте есть кулинарный смысл, верни минимум один рецепт; если нет — верни пустой массив []."
 )
 
 COMPLETION_PROMPT = (
