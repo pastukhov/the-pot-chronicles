@@ -57,6 +57,12 @@ jobs:
             -s site \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Ensure archives page
+        run: |
+          if [ ! -f site/public/archives/index.html ] && [ -f site/static/archives/index.html ]; then
+            mkdir -p site/public/archives
+            cp site/static/archives/index.html site/public/archives/index.html
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
