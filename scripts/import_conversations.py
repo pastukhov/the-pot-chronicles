@@ -40,7 +40,7 @@ EXTRACTION_PROMPT = (
 )
 
 MULTI_EXTRACTION_PROMPT = (
-  "Извлеки все отдельные кулинарные рецепты из текста. Если рецепт неполный, дострой его логично. Ответ на русском. "
+  "Извлеки все отдельные кулинарные рецепты из текста. Исправляй опечатки/ошибки и достраивай рецепты логично до максимально подробных. Ответ на русском. "
   "Верни JSON-массив, где каждый элемент:\n"
   "{\n"
   '  "title": "",\n'
@@ -54,9 +54,9 @@ MULTI_EXTRACTION_PROMPT = (
 )
 
 COMPLETION_PROMPT = (
-  "You are improving an incomplete recipe. Using the provided text, produce a complete cooking recipe in Russian. "
-  "If details are missing, infer plausible ingredients and steps consistent with the dish. "
-  "Output strictly in JSON with non-empty title, at least 5 ingredients, and at least 3 steps:\n\n"
+  "Ты улучшаешь неполный рецепт. Исправь опечатки и ошибки, дополни рецепт до максимально подробного вида на русском. "
+  "Если деталей не хватает, логично добавь ингредиенты и шаги, чтобы получился полноценный рецепт. "
+  "Вывод строго в JSON с непустым title, минимум 5 ингредиентов и минимум 3 шагами:\n\n"
   "{\n"
   '  "title": "",\n'
   '  "ingredients": [],\n'
