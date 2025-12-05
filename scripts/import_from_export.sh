@@ -16,7 +16,7 @@ source "$VENV_DIR/bin/activate"
 if [[ -f "$REQ_FILE" ]]; then
   echo "Installing dependencies ..."
   pip install --upgrade pip >/dev/null
-  pip install -r "$REQ_FILE"
+  pip install --break-system-packages -r "$REQ_FILE"
 fi
 
 if [[ ! -f "$EXPORT_FILE" ]]; then
