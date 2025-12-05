@@ -10,11 +10,18 @@
       {{ with .Params.image }}
         <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
       {{ end }}
-      {{ with .Summary }}
-        <p>{{ . }}</p>
+      {{ if .Summary }}
+        <p>{{ .Summary }}</p>
       {{ else }}
         {{ with .Params.ingredients }}
-          <p>{{ delimit (first 5 .) ", " }}{{ if gt (len .) 5 }}…{{ end }}</p>
+          <p><strong>Ингредиенты:</strong></p>
+          <ul class="ingredients">
+            {{ range first 5 . }}<li>{{ . }}</li>{{ end }}
+            {{ if gt (len .) 5 }}<li>…</li>{{ end }}
+          </ul>
+        {{ end }}
+        {{ with .Params.steps }}
+          <p><strong>Шаги:</strong> {{ index . 0 }}</p>
         {{ end }}
       {{ end }}
     </article>
