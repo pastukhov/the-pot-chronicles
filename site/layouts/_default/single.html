@@ -3,9 +3,14 @@
   <article class="card">
     <h2>{{ .Title }}</h2>
     <p class="meta">
-      {{ $date := time.Format ":date_long" .Date }}
-      {{ $time := time.Format "15:04" .Date }}
-      {{ printf "%s, %s" $date $time }}
+      {{ $monthMap := dict "January" "января" "February" "февраля" "March" "марта" "April" "апреля" "May" "мая" "June" "июня" "July" "июля" "August" "августа" "September" "сентября" "October" "октября" "November" "ноября" "December" "декабря" }}
+      {{ $monthKey := .Date.Format "January" }}
+      {{ $month := index $monthMap $monthKey }}
+      {{ if $month }}
+        {{ printf "%s %s %s, %s" (.Date.Format "02") $month (.Date.Format "2006") (.Date.Format "15:04") }}
+      {{ else }}
+        {{ .Date.Format "02 January 2006, 15:04" }}
+      {{ end }}
       {{ with .Params.time }} · {{ . }}{{ end }}
       {{ with .Params.temperature }} · {{ . }}{{ end }}
       {{ with .Params.categories }} · {{ delimit . ", " | title }}{{ end }}
