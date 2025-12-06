@@ -3,11 +3,11 @@ title: Приготовление ягеля
 date: '2025-09-22T08:08:50.102952+00:00'
 tags:
 - recipe
-- vegetables
-- soup
+- овощи
+- супы
 categories:
-- vegetables
-- soup
+- овощи
+- супы
 source_thread: 68d10142-d6a8-8331-bff8-0bd05cdc764b
 source_message_id: 20017064-22b0-4ed4-8629-d7be946d10b8
 temperature: не указано

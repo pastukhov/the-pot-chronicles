@@ -3,9 +3,9 @@ title: Классический томатный соус
 date: '2025-08-08T10:54:22.683897+00:00'
 tags:
 - recipe
-- sauce
+- соусы
 categories:
-- sauce
+- соусы
 source_thread: 6895d6a6-71e0-8320-a815-3c19cef6dc2b
 source_message_id: bbb21170-b590-4551-a865-992d24623d5f
 temperature: Средний огонь

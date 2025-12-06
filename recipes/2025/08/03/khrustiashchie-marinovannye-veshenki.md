@@ -3,11 +3,11 @@ title: Хрустящие маринованные вешенки
 date: '2025-08-03T10:59:15.458018+00:00'
 tags:
 - recipe
-- vegetables
-- experiments
+- овощи
+- эксперименты
 categories:
-- vegetables
-- experiments
+- овощи
+- эксперименты
 source_thread: 688f259f-2998-832e-9afa-da5abb1fc5c2
 source_message_id: afea8f12-55c7-44df-b7d4-4ade28993b05
 temperature: комнатная для остывания

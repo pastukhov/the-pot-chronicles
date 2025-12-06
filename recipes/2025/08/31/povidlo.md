@@ -3,9 +3,9 @@ title: Повидло
 date: '2025-08-31T15:57:27.851862+00:00'
 tags:
 - recipe
-- experiments
+- эксперименты
 categories:
-- experiments
+- эксперименты
 source_thread: 68b4706a-5b5c-8323-8051-2494aca87af1
 source_message_id: bbb21653-4418-4760-812e-bb5956c58cb2
 temperature: Средний огонь

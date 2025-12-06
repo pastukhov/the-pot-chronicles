@@ -3,9 +3,9 @@ title: Свекла методом Су вид
 date: '2025-05-24T04:45:30.462656+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 68314ee9-e4b4-8012-9f8e-240654376cc1
 source_message_id: bbb215d1-aa7a-4211-8b1a-7383074b6cd6
 temperature: 85°C

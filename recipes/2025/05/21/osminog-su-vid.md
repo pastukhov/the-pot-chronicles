@@ -3,9 +3,9 @@ title: Осьминог Су Вид
 date: '2025-05-21T20:25:23.911101+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 682e36b3-8d00-8012-867e-b4de45dc6252
 source_message_id: bbb21f75-b389-44e3-9889-343353a52368
 temperature: 80°C

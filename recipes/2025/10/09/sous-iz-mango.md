@@ -3,9 +3,9 @@ title: Соус из манго
 date: '2025-10-09T13:15:24.918000+00:00'
 tags:
 - recipe
-- sauce
+- соусы
 categories:
-- sauce
+- соусы
 source_thread: 68e7b49a-9c00-832a-bafb-0eec395af464
 source_message_id: 83aa3f3f-4107-430c-8432-769dcd99d868
 temperature: холодный

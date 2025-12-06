@@ -3,9 +3,9 @@ title: Жареные осьминоги
 date: '2025-08-15T16:30:38.823564+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 689f607c-2e20-832d-b217-8b02f7e9703f
 source_message_id: bbb21b85-6515-443d-9455-a731c255492b
 temperature: средний огонь

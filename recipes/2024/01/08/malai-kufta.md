@@ -3,13 +3,13 @@ title: Malai Kufta
 date: '2024-01-08T05:37:04.700218+00:00'
 tags:
 - recipe
-- meat
-- vegetables
-- experiments
+- мясо
+- овощи
+- эксперименты
 categories:
-- meat
-- vegetables
-- experiments
+- мясо
+- овощи
+- эксперименты
 source_thread: 60ec25f2-4d8d-4dcb-be50-0752b4f9beb4
 source_message_id: bbb2b550-0481-4da1-94e9-f824c48656a4
 temperature: Готовить на среднем огне

@@ -3,9 +3,9 @@ title: Утка конфи су вид
 date: '2024-12-07T20:34:42.160611+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 6754b162-00ec-8012-8a4d-2bc0266eb206
 source_message_id: bbb21161-c85a-472f-99b1-c7a99e21e167
 temperature: 85°C

@@ -3,9 +3,9 @@ title: Рулька су-вид
 date: '2025-08-22T20:40:30.152092+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 68a8d5b8-225c-832b-9a42-ffc03c32f970
 source_message_id: b62f8bb2-1fcb-417b-822a-ba537f678b8a
 temperature: 74-80 °C в зависимости от желаемой текстуры

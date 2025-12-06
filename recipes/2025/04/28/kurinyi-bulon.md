@@ -3,9 +3,9 @@ title: Куриный бульон
 date: '2025-04-28T17:39:32.045502+00:00'
 tags:
 - recipe
-- soup
+- супы
 categories:
-- soup
+- супы
 source_thread: 680fbd21-76fc-8012-8ca0-2ac14dcd4330
 source_message_id: bbb21d37-c104-4cf1-9962-6c14ddd08a0f
 time: 2 часа

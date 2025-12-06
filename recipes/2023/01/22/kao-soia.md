@@ -3,9 +3,9 @@ title: Као соя
 date: '2023-01-22T06:16:23.558277+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 589d4258-fe28-47e3-a519-b2711ade9472
 source_message_id: 6190588e-1ae1-4ecd-bb41-1368e60f9e07
 temperature: 80-100°C

@@ -3,11 +3,11 @@ title: Копченая рулька с грудинкой
 date: '2025-08-22T21:31:40.903547+00:00'
 tags:
 - recipe
-- meat
-- experiments
+- мясо
+- эксперименты
 categories:
-- meat
-- experiments
+- мясо
+- эксперименты
 source_thread: 68a8d5b8-225c-832b-9a42-ffc03c32f970
 source_message_id: bbb2132f-ebc2-4288-85c9-1dfc23245870
 temperature: 100-120°C

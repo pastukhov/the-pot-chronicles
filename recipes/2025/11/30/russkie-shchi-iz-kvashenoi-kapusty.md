@@ -3,13 +3,13 @@ title: Русские щи из квашеной капусты
 date: '2025-11-30T12:18:01.418746+00:00'
 tags:
 - recipe
-- soup
-- fermentation
-- vegetables
+- супы
+- ферментации
+- овощи
 categories:
-- soup
-- fermentation
-- vegetables
+- супы
+- ферментации
+- овощи
 source_thread: 692c352a-d730-832f-b11c-c62e327ea0ba
 source_message_id: bbb21b13-74d5-4b5f-9a85-3d2f41f89575
 temperature: Варить на среднем огне

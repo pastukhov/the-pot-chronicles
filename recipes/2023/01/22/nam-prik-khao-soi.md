@@ -3,11 +3,11 @@ title: Nam Prik Khao Soi
 date: '2023-01-22T05:46:17.007157+00:00'
 tags:
 - recipe
-- meat
-- vegetables
+- мясо
+- овощи
 categories:
-- meat
-- vegetables
+- мясо
+- овощи
 source_thread: 589d4258-fe28-47e3-a519-b2711ade9472
 source_message_id: be379f9c-9999-4063-919a-7d5cef8e8018
 temperature: средний огонь

@@ -3,11 +3,11 @@ title: Морс из шикши
 date: '2025-09-22T08:00:08.735329+00:00'
 tags:
 - recipe
-- fermentation
-- beverages
+- ферментации
+- напитки
 categories:
-- fermentation
-- beverages
+- ферментации
+- напитки
 source_thread: 68d10142-d6a8-8331-bff8-0bd05cdc764b
 source_message_id: f8323303-8ef8-4380-904e-926b336e3832
 temperature: комнатная температура

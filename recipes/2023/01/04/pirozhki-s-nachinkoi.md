@@ -3,9 +3,9 @@ title: Пирожки с начинкой
 date: '2023-01-04T15:07:19.944898+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: fa8a5804-f099-455e-9775-83a4ac2899e1
 source_message_id: 81a84f19-0df6-403f-bc33-1d4a80908ccc
 temperature: 180 градусов Цельсия

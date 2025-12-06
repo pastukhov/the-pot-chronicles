@@ -3,9 +3,9 @@ title: Корабельные черви в маринаде
 date: '2025-09-16T19:15:09.158635+00:00'
 tags:
 - recipe
-- fish
+- рыба
 categories:
-- fish
+- рыба
 source_thread: 68c9b725-bab8-8329-ac0a-979f6aba46d3
 source_message_id: 801cbc22-5d6c-4608-b1da-6998eea411ce
 temperature: не требуется

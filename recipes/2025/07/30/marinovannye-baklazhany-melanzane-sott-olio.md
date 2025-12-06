@@ -3,11 +3,11 @@ title: Маринованные баклажаны (Melanzane Sott'olio)
 date: '2025-07-30T20:15:21.548666+00:00'
 tags:
 - recipe
-- vegetables
-- fermentation
+- овощи
+- ферментации
 categories:
-- vegetables
-- fermentation
+- овощи
+- ферментации
 source_thread: 688a7cb3-107c-8324-96fe-d5dd02ba7217
 source_message_id: cad89490-32cc-45a0-868e-5377d391b4e9
 temperature: комнатная температура для настаивания, охлаждение в холодильнике

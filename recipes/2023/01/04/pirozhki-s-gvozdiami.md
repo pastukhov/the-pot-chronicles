@@ -3,9 +3,9 @@ title: Пирожки с гвоздями
 date: '2023-01-04T15:04:00.369086+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: fa8a5804-f099-455e-9775-83a4ac2899e1
 source_message_id: b072032a-0919-407c-a7e8-7c7d905b40bc
 temperature: 180°C

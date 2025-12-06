@@ -3,9 +3,9 @@ title: Тёплые овощи вок с бак чоем и овощной хр�
 date: '2025-10-14T16:03:53.014499+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 68ed2c80-4248-832c-b842-fc8cadb7845a
 source_message_id: 35436860-595f-44ca-81e6-faa6b9c3e066
 temperature: уровень 7 из 9

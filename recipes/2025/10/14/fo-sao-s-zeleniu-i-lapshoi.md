@@ -3,9 +3,9 @@ title: Фо сао с зеленью и лапшой
 date: '2025-10-14T16:04:55.926114+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 68ed2c80-4248-832c-b842-fc8cadb7845a
 source_message_id: b58cfeb3-69c5-47a9-8ca8-ce4e5793becc
 temperature: сильный огонь

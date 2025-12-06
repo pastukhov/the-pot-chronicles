@@ -3,9 +3,9 @@ title: Ягодное варенье
 date: '2025-08-31T16:32:11.787375+00:00'
 tags:
 - recipe
-- fermentation
+- ферментации
 categories:
-- fermentation
+- ферментации
 source_thread: 68b4706a-5b5c-8323-8051-2494aca87af1
 source_message_id: bbb21f02-0c4c-474a-a5c1-8ea479cdf903
 temperature: Средний огонь

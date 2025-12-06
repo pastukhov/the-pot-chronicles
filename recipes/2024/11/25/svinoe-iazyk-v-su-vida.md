@@ -3,9 +3,9 @@ title: Свиное язык в су вида
 date: '2024-11-25T21:20:42.259389+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 6744dcf4-83bc-8012-aaa0-379852fda5ba
 source_message_id: bbb21411-2ecd-455e-97aa-0379cb8978e1
 temperature: 58-62°C

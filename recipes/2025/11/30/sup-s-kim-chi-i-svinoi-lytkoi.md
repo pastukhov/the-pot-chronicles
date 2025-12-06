@@ -3,11 +3,11 @@ title: Суп с Ким Чи и свиной лыткой
 date: '2025-11-30T12:14:42.322492+00:00'
 tags:
 - recipe
-- soup
-- meat
+- супы
+- мясо
 categories:
-- soup
-- meat
+- супы
+- мясо
 source_thread: 692c352a-d730-832f-b11c-c62e327ea0ba
 source_message_id: bbb216c1-da5a-40df-a986-4228bb197e2a
 temperature: Средний огонь

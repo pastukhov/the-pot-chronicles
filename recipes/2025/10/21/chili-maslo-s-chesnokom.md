@@ -3,9 +3,9 @@ title: Чили масло с чесноком
 date: '2025-10-21T18:41:32.343123+00:00'
 tags:
 - recipe
-- sauce
+- соусы
 categories:
-- sauce
+- соусы
 source_thread: 68f7d3db-740c-8330-b5c0-34d9231a75e4
 source_message_id: bbb211ef-9e6d-4f2a-997f-e85cb3a0f101
 temperature: 180°C

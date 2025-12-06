@@ -3,9 +3,9 @@ title: Джем из хеномелеса с цукатами
 date: '2025-10-25T14:37:08.631519+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 68fce092-af94-832f-9b9c-b69f9c68b25a
 source_message_id: bbb21575-c6f3-485c-a084-4bbbe51c8457
 temperature: Средний огонь

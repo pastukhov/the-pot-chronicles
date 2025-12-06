@@ -3,11 +3,11 @@ title: Жареные маленькие осьминоги
 date: '2025-08-15T16:45:32.213907+00:00'
 tags:
 - recipe
-- fish
-- meat
+- рыба
+- мясо
 categories:
-- fish
-- meat
+- рыба
+- мясо
 source_thread: 689f607c-2e20-832d-b217-8b02f7e9703f
 source_message_id: 923ccd05-ddd1-4026-bcfa-5648c5ed622e
 temperature: средний огонь

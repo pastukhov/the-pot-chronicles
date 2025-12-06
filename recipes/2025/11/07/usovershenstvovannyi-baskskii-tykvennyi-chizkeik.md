@@ -3,9 +3,9 @@ title: Усовершенствованный баскский тыквенны�
 date: '2025-11-07T18:56:43.256073+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 690e3fe9-6d44-8330-b643-da18ec30b0c6
 source_message_id: d4a9983e-0c83-42bd-a713-5bec682b2553
 temperature: 160 градусов Цельсия

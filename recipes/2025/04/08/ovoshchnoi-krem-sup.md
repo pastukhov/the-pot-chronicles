@@ -3,11 +3,11 @@ title: Овощной крем-суп
 date: '2025-04-08T12:05:53.236555+00:00'
 tags:
 - recipe
-- soup
-- beverages
+- супы
+- напитки
 categories:
-- soup
-- beverages
+- супы
+- напитки
 source_thread: 67f51120-bd28-8012-89c9-65a8131dee70
 source_message_id: bbb21887-c156-4087-b094-2ff3185ee4c3
 temperature: Средний огонь

@@ -3,9 +3,9 @@ title: Говяжий рубец, приготовленный в Су Вид
 date: '2025-11-16T15:08:56.837705+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 6919e908-8b84-832d-bcdd-b5805fd040a3
 source_message_id: bbb21c9b-015b-40c9-a4a7-77dfce182b8f
 temperature: 80 °C

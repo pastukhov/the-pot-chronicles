@@ -3,11 +3,11 @@ title: Мясо с зеленью и чесноком
 date: '2025-11-29T13:01:42.259738+00:00'
 tags:
 - recipe
-- meat
-- vegetables
+- мясо
+- овощи
 categories:
-- meat
-- vegetables
+- мясо
+- овощи
 source_thread: 692aed65-af68-832a-baad-75b299ae284e
 source_message_id: bbb21be7-3712-4ccb-a37c-ddc6ed8f5243
 ingredients:

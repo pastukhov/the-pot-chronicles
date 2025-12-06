@@ -3,9 +3,9 @@ title: Смешанная горчица
 date: '2025-03-24T10:23:54.677692+00:00'
 tags:
 - recipe
-- sauce
+- соусы
 categories:
-- sauce
+- соусы
 source_thread: 67e1327b-3234-8012-ab24-4202d58f08cc
 source_message_id: bbb21b3a-eb89-44f0-9d35-694bc70c8261
 temperature: Холодильник

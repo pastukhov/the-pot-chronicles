@@ -3,11 +3,11 @@ title: Ферментированные зелёные помидоры
 date: '2025-10-09T07:30:17.090215+00:00'
 tags:
 - recipe
-- vegetables
-- fermentation
+- овощи
+- ферментации
 categories:
-- vegetables
-- fermentation
+- овощи
+- ферментации
 source_thread: 68e76468-9f84-8327-aed4-e44122db39ec
 source_message_id: b582d3ea-e8c4-472a-b966-7c6b706cdf76
 temperature: При комнатной температуре для ферментации

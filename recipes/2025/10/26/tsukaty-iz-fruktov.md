@@ -3,9 +3,9 @@ title: Цукаты из фруктов
 date: '2025-10-26T18:52:32.934372+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 68fce092-af94-832f-9b9c-b69f9c68b25a
 source_message_id: 01b1ef2b-56fe-42ec-aad0-f2070ec3c1a9
 temperature: средний огонь (индукция 6 из 9)

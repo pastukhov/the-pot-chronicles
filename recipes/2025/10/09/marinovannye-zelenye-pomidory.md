@@ -3,11 +3,11 @@ title: Маринованные зелёные помидоры
 date: '2025-10-09T07:30:17.090215+00:00'
 tags:
 - recipe
-- fermentation
-- vegetables
+- ферментации
+- овощи
 categories:
-- fermentation
-- vegetables
+- ферментации
+- овощи
 source_thread: 68e76468-9f84-8327-aed4-e44122db39ec
 source_message_id: b582d3ea-e8c4-472a-b966-7c6b706cdf76
 temperature: комнатная температура для ферментации, затем холодильник

@@ -3,9 +3,9 @@ title: Квашеный чеснок головками
 date: '2025-07-30T20:51:51.894487+00:00'
 tags:
 - recipe
-- fermentation
+- ферментации
 categories:
-- fermentation
+- ферментации
 source_thread: 688a85d6-92b4-832e-a272-458ff20a9d42
 source_message_id: bbb2139f-244a-4acd-81f6-6d045e6926ea
 temperature: Холодное, темное место

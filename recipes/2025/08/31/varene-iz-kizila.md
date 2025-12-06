@@ -3,9 +3,9 @@ title: Варенье из кизила
 date: '2025-08-31T15:55:23.446676+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 68b4706a-5b5c-8323-8051-2494aca87af1
 source_message_id: bbb21a27-bc4f-48f5-85b8-e2aa2a056f25
 temperature: Средний огонь

@@ -3,9 +3,9 @@ title: Тайские ферментированные сосиски
 date: '2023-01-04T12:55:14.556045+00:00'
 tags:
 - recipe
-- fermentation
+- ферментации
 categories:
-- fermentation
+- ферментации
 source_thread: 312ecce7-5c51-4ff6-a39f-9d190be314a8
 source_message_id: e96625b2-a978-47cc-928b-03af5f9be80e
 temperature: Теплое место для ферментации

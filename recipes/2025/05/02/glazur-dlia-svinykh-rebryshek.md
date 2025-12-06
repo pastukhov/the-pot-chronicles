@@ -3,9 +3,9 @@ title: Глазурь для свиных рёбрышек
 date: '2025-05-02T06:41:07.999480+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 6813c480-fe28-8012-aea4-7977a71496a0
 source_message_id: dae68fbb-e9f1-4ac8-917a-a6b2d6d7acb5
 notes: Количество глазури достаточно для 800 г — 1,2 кг свиных рёбрышек.

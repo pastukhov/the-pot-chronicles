@@ -3,9 +3,9 @@ title: Ароматный фруктовый уксус для маринадо�
 date: '2025-09-26T16:14:16.399884+00:00'
 tags:
 - recipe
-- fermentation
+- ферментации
 categories:
-- fermentation
+- ферментации
 source_thread: 68d6bbb1-fa64-8324-ab30-f6cb27acf65e
 source_message_id: 3e045b6d-6361-4de0-bc54-47362ad25d2f
 temperature: комнатная температура

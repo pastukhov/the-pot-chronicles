@@ -3,9 +3,9 @@ title: Приготовление овоща
 date: '2025-10-12T06:26:17.763086+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 68eb49fe-be18-8328-bcaa-02fe5d4f4ba4
 source_message_id: 553426c4-d981-438c-bd36-222b92cde164
 temperature: Кипяток

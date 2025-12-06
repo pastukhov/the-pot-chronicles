@@ -3,9 +3,9 @@ title: Свиные уши в Су вид
 date: '2025-02-19T15:05:24.316206+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 67b5f333-fb2c-8012-983f-e8852c368fca
 source_message_id: bbb212ac-37bc-4149-bede-e762cd567c18
 temperature: 80°C

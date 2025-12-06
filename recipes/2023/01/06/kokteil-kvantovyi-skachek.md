@@ -3,9 +3,9 @@ title: Коктейль Квантовый Скачек
 date: '2023-01-06T13:52:29.578622+00:00'
 tags:
 - recipe
-- beverages
+- напитки
 categories:
-- beverages
+- напитки
 source_thread: a79604a8-6a30-4e63-b101-71e4c013b630
 source_message_id: e780f108-0221-487d-9f21-a3a80e39b081
 temperature: Подается охлажденным

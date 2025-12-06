@@ -13,7 +13,13 @@
       {{ end }}
       {{ with .Params.time }} · {{ . }}{{ end }}
       {{ with .Params.temperature }} · {{ . }}{{ end }}
-      {{ with .Params.categories }} · {{ delimit . ", " | title }}{{ end }}
+      {{ with .Params.categories }}
+        {{ $translated := slice }}
+        {{ range . }}
+          {{ $translated = $translated | append (partial "translate-category.html" .) }}
+        {{ end }}
+        · {{ delimit $translated ", " }}
+      {{ end }}
     </p>
     {{ with .Params.image }}
       <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">

@@ -3,9 +3,9 @@ title: Баскский тыквенный чизкейк
 date: '2025-11-07T18:52:26.436771+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 690e3fe9-6d44-8330-b643-da18ec30b0c6
 source_message_id: bbb2102f-39ad-45f2-a9be-979dc05dbdf4
 temperature: 200°C

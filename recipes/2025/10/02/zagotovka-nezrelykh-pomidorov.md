@@ -3,11 +3,11 @@ title: Заготовка незрелых помидоров
 date: '2025-10-02T09:39:48.721000+00:00'
 tags:
 - recipe
-- vegetables
-- fermentation
+- овощи
+- ферментации
 categories:
-- vegetables
-- fermentation
+- овощи
+- ферментации
 source_thread: 68de4864-84f0-832f-813c-94ff67fdcb1b
 source_message_id: 84337997-11c3-479b-bdcc-5e7c90af9bec
 time: 1 сутки

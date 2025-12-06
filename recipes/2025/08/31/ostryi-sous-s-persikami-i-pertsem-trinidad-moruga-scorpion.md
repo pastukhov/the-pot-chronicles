@@ -3,11 +3,11 @@ title: Острый соус с персиками и перцем Trinidad moru
 date: '2025-08-31T12:23:36.249635+00:00'
 tags:
 - recipe
-- fermentation
-- experiments
+- ферментации
+- эксперименты
 categories:
-- fermentation
-- experiments
+- ферментации
+- эксперименты
 source_thread: 68b43ec7-53c0-832d-85bc-8b1536f3a651
 source_message_id: bbb21d7f-f908-487c-a6c2-67d17a8442d7
 temperature: комнатная температура

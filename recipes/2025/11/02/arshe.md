@@ -3,9 +3,9 @@ title: Арше
 date: '2025-11-02T20:04:53.919613+00:00'
 tags:
 - recipe
-- fermentation
+- ферментации
 categories:
-- fermentation
+- ферментации
 source_thread: 6907b961-40f4-8328-95f1-e1851fec2bcd
 source_message_id: bbb21350-fcf3-4084-9eb6-001c2096be6e
 temperature: средний огонь

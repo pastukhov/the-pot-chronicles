@@ -3,13 +3,13 @@ title: Ферментированная колбаса
 date: '2023-01-27T16:18:30.153077+00:00'
 tags:
 - recipe
-- fermentation
-- meat
-- salad
+- ферментации
+- мясо
+- салаты
 categories:
-- fermentation
-- meat
-- salad
+- ферментации
+- мясо
+- салаты
 source_thread: 90ed5ec4-28d8-4b8f-b4d9-0a0fe6c660b2
 source_message_id: 0fd08c11-231c-4cf7-9d6d-3f0a2a7fb2f5
 temperature: 10-15°C

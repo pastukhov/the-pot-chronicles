@@ -3,9 +3,9 @@ title: Как правильно варить опята
 date: '2025-08-03T09:09:26.664427+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 688f259f-2998-832e-9afa-da5abb1fc5c2
 source_message_id: d5c001ca-7fc1-495b-9602-2351d3100ac9
 temperature: Средний огонь

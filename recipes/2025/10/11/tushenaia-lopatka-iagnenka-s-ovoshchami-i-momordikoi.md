@@ -3,11 +3,11 @@ title: Тушеная лопатка ягненка с овощами и мом�
 date: '2025-10-11T15:03:55.261166+00:00'
 tags:
 - recipe
-- meat
-- vegetables
+- мясо
+- овощи
 categories:
-- meat
-- vegetables
+- мясо
+- овощи
 source_thread: 68ea6add-fcf4-832b-8f67-61b81fb258ff
 source_message_id: bbb21a3c-21da-458c-a235-9b418a3b3a5b
 temperature: На небольшом огне

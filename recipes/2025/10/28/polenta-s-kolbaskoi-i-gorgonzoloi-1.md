@@ -3,13 +3,13 @@ title: Полента с колбаской и горгонзолой
 date: '2025-10-28T17:15:32.702016+00:00'
 tags:
 - recipe
-- meat
-- vegetables
-- desserts
+- мясо
+- овощи
+- десерты
 categories:
-- meat
-- vegetables
-- desserts
+- мясо
+- овощи
+- десерты
 source_thread: 6900f484-5040-8324-abba-9f467be8af99
 source_message_id: 8c8b5b4c-18bc-4866-a370-0277af56db2a
 temperature: Средний огонь

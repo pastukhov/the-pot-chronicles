@@ -3,9 +3,9 @@ title: Говяжий хвост Су вид
 date: '2025-06-17T21:36:08.241022+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 6851dfc7-d360-8012-bced-cda9e3668b83
 source_message_id: bbb211b6-00ef-467c-9ecb-041c4d137b4c
 temperature: 58°C

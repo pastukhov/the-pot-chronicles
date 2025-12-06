@@ -3,11 +3,11 @@ title: Салат Коул слру
 date: '2025-11-17T10:28:28.344865+00:00'
 tags:
 - recipe
-- salad
-- vegetables
+- салаты
+- овощи
 categories:
-- salad
-- vegetables
+- салаты
+- овощи
 source_thread: 691af8cb-f974-8329-9b64-73ad35cdba59
 source_message_id: bbb21b36-a33c-418a-93fd-ce87070816fc
 temperature: холодная

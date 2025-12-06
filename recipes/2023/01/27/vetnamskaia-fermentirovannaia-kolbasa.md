@@ -3,11 +3,11 @@ title: Вьетнамская ферментированная колбаса
 date: '2023-01-27T16:11:37.822851+00:00'
 tags:
 - recipe
-- fermentation
-- meat
+- ферментации
+- мясо
 categories:
-- fermentation
-- meat
+- ферментации
+- мясо
 source_thread: 90ed5ec4-28d8-4b8f-b4d9-0a0fe6c660b2
 source_message_id: 2a3595d4-5653-4725-a318-8278d903c651
 temperature: Темное, прохладное место

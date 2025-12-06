@@ -3,9 +3,9 @@ title: Желе из лсминогов
 date: '2025-05-22T17:49:12.730551+00:00'
 tags:
 - recipe
-- experiments
+- эксперименты
 categories:
-- experiments
+- эксперименты
 source_thread: 682f6398-425c-8012-a1d7-ab09e0c118dc
 source_message_id: bbb21094-2524-4e7b-a474-bba06b496dbd
 temperature: не указано

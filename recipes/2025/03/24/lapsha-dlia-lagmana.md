@@ -3,9 +3,9 @@ title: Лапша для лагмана
 date: '2025-03-24T10:32:57.830182+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 67e1327b-3234-8012-ab24-4202d58f08cc
 source_message_id: 38655544-549d-4f79-bd84-950f928fb512
 temperature: Кипящая вода

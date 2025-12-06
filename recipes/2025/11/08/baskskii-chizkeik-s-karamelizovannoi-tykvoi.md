@@ -3,9 +3,9 @@ title: Баскский чизкейк с карамелизованной ты�
 date: '2025-11-08T11:28:00.364603+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 690e3fe9-6d44-8330-b643-da18ec30b0c6
 source_message_id: f6d255ab-df5f-4ba9-b6f2-7ed4f99cc36b
 temperature: 180°C

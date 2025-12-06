@@ -3,9 +3,9 @@ title: Крем из муки, сливок и какао масла
 date: '2025-02-21T18:52:13.855677+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 67b8cb25-cc98-8012-a871-9d695b5dc8d7
 source_message_id: bbb21aab-9351-4f2d-92a1-524d1d83ba6a
 temperature: водяная баня

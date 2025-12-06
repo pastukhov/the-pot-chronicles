@@ -3,13 +3,13 @@ title: Запеченные свиные кости с овощами для б�
 date: '2025-04-28T17:38:42.054212+00:00'
 tags:
 - recipe
-- soup
-- meat
-- vegetables
+- супы
+- мясо
+- овощи
 categories:
-- soup
-- meat
-- vegetables
+- супы
+- мясо
+- овощи
 source_thread: 680fbd21-76fc-8012-8ca0-2ac14dcd4330
 source_message_id: bbb2126d-0280-4a75-a6b3-0bf427eb7dfd
 temperature: 200°C

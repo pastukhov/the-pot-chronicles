@@ -33,6 +33,9 @@ fi
 echo "Importing recipes from $EXPORT_FILE ..."
 python -u "$ROOT_DIR/scripts/import_conversations.py"
 
+echo "Normalizing categories/tags to Russian ..."
+python "$ROOT_DIR/scripts/translate_categories.py"
+
 echo "Generating images ..."
 python "$ROOT_DIR/scripts/generate_images.py"
 

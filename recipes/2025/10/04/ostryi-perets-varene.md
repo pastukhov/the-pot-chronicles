@@ -3,9 +3,9 @@ title: Острый перец варенье
 date: '2025-10-04T17:05:32.207561+00:00'
 tags:
 - recipe
-- desserts
+- десерты
 categories:
-- desserts
+- десерты
 source_thread: 68e153db-a594-8326-bc84-39822afde638
 source_message_id: bbb21137-8be6-40d2-ba88-f0cdc310f769
 temperature: средний огонь

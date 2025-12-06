@@ -3,9 +3,9 @@ title: Тайская свинина му кроп
 date: '2025-02-02T13:36:19.170183+00:00'
 tags:
 - recipe
-- meat
+- мясо
 categories:
-- meat
+- мясо
 source_thread: 679f74d2-cab8-8012-bc29-c0bf9ad4c618
 source_message_id: bbb21c85-2c6a-4ca7-b0ec-7b1e6ebaf811
 temperature: 60-70°C

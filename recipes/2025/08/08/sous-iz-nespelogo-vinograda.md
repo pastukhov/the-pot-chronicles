@@ -3,11 +3,11 @@ title: Соус из неспелого винограда
 date: '2025-08-08T10:51:57.043324+00:00'
 tags:
 - recipe
-- sauce
-- fermentation
+- соусы
+- ферментации
 categories:
-- sauce
-- fermentation
+- соусы
+- ферментации
 source_thread: 6895d6a6-71e0-8320-a815-3c19cef6dc2b
 source_message_id: 1c20e557-9f05-4f15-966d-2abc962d0dbb
 temperature: Довести до кипения

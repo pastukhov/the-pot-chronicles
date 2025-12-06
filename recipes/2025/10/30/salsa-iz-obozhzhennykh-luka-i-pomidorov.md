@@ -3,9 +3,9 @@ title: Сальса из обожженных лука и помидоров
 date: '2025-10-30T21:11:29.098470+00:00'
 tags:
 - recipe
-- vegetables
+- овощи
 categories:
-- vegetables
+- овощи
 source_thread: 6903d3d7-b2c0-832f-8916-0e187f9574cf
 source_message_id: bbb21222-3d02-4100-9bb5-cc756c944905
 temperature: средний огонь

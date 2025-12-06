@@ -21,10 +21,56 @@ MODEL = "gpt-4o-mini"
 CLASSIFIER_PROMPT = (
   "Ты классификатор кулинарных сообщений. Определи, относится ли текст к кулинарии (рецепты, блюда, заготовки, технологии приготовления).\n"
   "Всегда относить сообщения о еде/ингредиентах/способах приготовления к кулинарным, даже если рецепт неполный.\n"
-  "Выбери высокоуровневые категории: soup, meat, fish, vegetables, fermentation, desserts, experiments, beverages, salad, sauce, baking.\n"
-  'Верни JSON: {"is_recipe": true|false, "categories": ["soup", "meat", ...]}.\n'
+  "Выбери высокоуровневые категории ТОЛЬКО на русском из списка: супы, мясо, рыба, овощи, ферментации, десерты, эксперименты, напитки, салаты, соусы, выпечка.\n"
+  'Верни JSON строго вида: {"is_recipe": true|false, "categories": ["супы", "мясо", ...]}.\n'
   "Используй нижний регистр категорий; если не уверен, ставь is_recipe=false и пустой список."
 )
+
+CATEGORY_MAP = {
+  "soup": "супы",
+  "soups": "супы",
+  "broth": "супы",
+  "meat": "мясо",
+  "beef": "мясо",
+  "pork": "мясо",
+  "poultry": "мясо",
+  "chicken": "мясо",
+  "fish": "рыба",
+  "seafood": "рыба",
+  "vegetable": "овощи",
+  "vegetables": "овощи",
+  "salad": "салаты",
+  "salads": "салаты",
+  "side": "гарниры",
+  "side dish": "гарниры",
+  "sauce": "соусы",
+  "sauces": "соусы",
+  "dessert": "десерты",
+  "desserts": "десерты",
+  "baking": "выпечка",
+  "bread": "выпечка",
+  "fermentation": "ферментации",
+  "fermented": "ферментации",
+  "pickles": "ферментации",
+  "beverages": "напитки",
+  "beverage": "напитки",
+  "drinks": "напитки",
+  "drink": "напитки",
+  "experiments": "эксперименты",
+  "experiment": "эксперименты",
+  # Russian pass-throughs
+  "супы": "супы",
+  "мясо": "мясо",
+  "рыба": "рыба",
+  "овощи": "овощи",
+  "ферментации": "ферментации",
+  "десерты": "десерты",
+  "эксперименты": "эксперименты",
+  "напитки": "напитки",
+  "салаты": "салаты",
+  "соусы": "соусы",
+  "выпечка": "выпечка",
+}
 
 EXTRACTION_PROMPT = (
   "Extract a structured cooking recipe from the text. Respond in Russian.\n"
@@ -78,6 +124,16 @@ def validate_api_key() -> str:
     sys.stderr.write("Missing OPENAI_API_KEY\n")
     raise SystemExit(1)
   return api_key
+
+
+def normalize_categories(categories: List[str]) -> List[str]:
+  normalized: List[str] = []
+  for cat in categories:
+    key = cat.strip().lower()
+    mapped = CATEGORY_MAP.get(key, key)
+    if mapped and mapped not in normalized:
+      normalized.append(mapped)
+  return normalized
 
 
 def read_front_matter(path: Path) -> Dict[str, Any]:
@@ -158,6 +214,7 @@ def classify(client: OpenAI, text: str) -> Tuple[bool, List[str]]:
     if isinstance(categories, str):
       categories = [categories]
     categories = [str(c).strip().lower() for c in categories if str(c).strip()]
+    categories = normalize_categories(categories)
     return is_recipe, categories
   except Exception:
     answer = content.strip().lower()

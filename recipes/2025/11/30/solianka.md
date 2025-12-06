@@ -3,9 +3,9 @@ title: Солянка
 date: '2025-11-30T12:17:06.915229+00:00'
 tags:
 - recipe
-- soup
+- супы
 categories:
-- soup
+- супы
 source_thread: 692c352a-d730-832f-b11c-c62e327ea0ba
 source_message_id: bbb2194d-51f2-42c8-9371-bfb31ca8d616
 temperature: Средняя
