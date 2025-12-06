@@ -1,44 +1,6 @@
 {{- $name := . | default "" -}}
 {{- $key := lower $name -}}
-{{- $map := dict
-  "soup" "супы"
-  "soups" "супы"
-  "broth" "бульоны"
-  "stock" "бульоны"
-  "meat" "мясо"
-  "beef" "говядина"
-  "pork" "свинина"
-  "poultry" "птица"
-  "chicken" "курица"
-  "fish" "рыба"
-  "seafood" "морепродукты"
-  "vegetable" "овощи"
-  "vegetables" "овощи"
-  "salad" "салаты"
-  "salads" "салаты"
-  "side" "гарниры"
-  "side dish" "гарниры"
-  "sauce" "соусы"
-  "sauces" "соусы"
-  "dessert" "десерты"
-  "desserts" "десерты"
-  "baking" "выпечка"
-  "bread" "выпечка"
-  "fermentation" "ферментации"
-  "fermented" "ферментации"
-  "pickles" "маринады"
-  "pickle" "маринады"
-  "preserve" "консервация"
-  "preserves" "консервация"
-  "jam" "варенье"
-  "jams" "варенье"
-  "drink" "напитки"
-  "drinks" "напитки"
-  "grill" "гриль"
-  "bbq" "гриль"
-  "experiments" "эксперименты"
-  "experiment" "эксперименты"
-} -}}
+{{- $map := dict "soup" "супы" "soups" "супы" "broth" "бульоны" "stock" "бульоны" "meat" "мясо" "beef" "говядина" "pork" "свинина" "poultry" "птица" "chicken" "курица" "fish" "рыба" "seafood" "морепродукты" "vegetable" "овощи" "vegetables" "овощи" "salad" "салаты" "salads" "салаты" "side" "гарниры" "side dish" "гарниры" "sauce" "соусы" "sauces" "соусы" "dessert" "десерты" "desserts" "десерты" "baking" "выпечка" "bread" "выпечка" "fermentation" "ферментации" "fermented" "ферментации" "pickles" "маринады" "pickle" "маринады" "preserve" "консервация" "preserves" "консервация" "jam" "варенье" "jams" "варенье" "drink" "напитки" "drinks" "напитки" "grill" "гриль" "bbq" "гриль" "experiments" "эксперименты" "experiment" "эксперименты" -}}
 {{- with index $map $key -}}
   {{ . }}
 {{- else -}}
