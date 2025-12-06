@@ -21,6 +21,3 @@ menu:
   - name: Теги
     url: /tags/
     weight: 2
-  - name: Все рецепты
-    url: /recipes/
-    weight: 999
