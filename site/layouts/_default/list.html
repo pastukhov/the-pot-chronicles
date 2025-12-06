@@ -10,20 +10,6 @@
       {{ with .Params.image }}
         <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
       {{ end }}
-      {{ with .Params.ingredients }}
-        <p><strong>Ингредиенты:</strong></p>
-        <ul class="ingredients">
-          {{ range first 5 . }}<li>{{ . }}</li>{{ end }}
-          {{ if gt (len .) 5 }}<li>…</li>{{ end }}
-        </ul>
-      {{ end }}
-      {{ with .Params.steps }}
-        <p><strong>Шаги:</strong></p>
-        <ol class="steps">
-          {{ range first 2 . }}<li>{{ . }}</li>{{ end }}
-          {{ if gt (len .) 2 }}<li>…</li>{{ end }}
-        </ol>
-      {{ end }}
     </article>
   {{ else }}
     <p class="meta">Рецептов пока нет.</p>
