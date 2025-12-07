@@ -53,4 +53,5 @@
       {{ with .Params.source_message_id }} · message {{ . }}{{ end }}
     </p>
   </article>
+  {{ partial "comments.html" . }}
 {{ end }}

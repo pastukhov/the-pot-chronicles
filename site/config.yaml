@@ -17,6 +17,11 @@ outputs:
     - JSON
 params:
   subtitle: Сайт, который готовит сам себя
+  giscus:
+    repo: "pastukhov/the-pot-chronicles"
+    repo_id: "R_kgDOQgm40Q"
+    category: "General"
+    category_id: "1"
 menu:
   main:
     - name: По датам
