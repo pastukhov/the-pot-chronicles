@@ -97,6 +97,69 @@ a:hover {
   transform: translateY(-1px);
 }
 
+.search-box {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.search-box label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.search-box input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.search-box input:focus {
+  outline: 1px solid rgba(255, 0, 204, 0.5);
+  border-color: rgba(255, 0, 204, 0.4);
+}
+
+.search-results {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  max-height: 320px;
+  overflow: auto;
+}
+
+.search-item {
+  display: block;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.search-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.search-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.search-empty {
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .content {
   flex: 1;
   max-width: var(--max-width);

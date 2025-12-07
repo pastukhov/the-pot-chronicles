@@ -11,6 +11,10 @@ module:
       target: content/recipes
     - source: ../images
       target: static/images
+outputs:
+  home:
+    - HTML
+    - JSON
 params:
   subtitle: Сайт, который готовит сам себя
 menu:

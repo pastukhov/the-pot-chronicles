@@ -7,7 +7,7 @@
   {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 </head>
-<body>
+<body data-baseurl="{{ .Site.BaseURL }}">
   <div class="page">
     <aside class="sidebar">
       <div>
@@ -19,6 +19,11 @@
         <a href="{{ .Site.BaseURL }}archives/">По датам</a>
         <a href="{{ .Site.BaseURL }}tags/">Теги</a>
       </nav>
+      <div class="search-box">
+        <label for="search-input">Поиск</label>
+        <input id="search-input" type="search" placeholder="Введите название или тег">
+        <div id="search-results" class="search-results"></div>
+      </div>
     </aside>
     <div class="content">
       {{ partial "header.html" . }}
@@ -30,5 +35,55 @@
       </footer>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+  <script>
+    (() => {
+      const input = document.getElementById('search-input');
+      const resultsBox = document.getElementById('search-results');
+      if (!input || !resultsBox) return;
+
+      const base = document.body.dataset.baseurl || '/';
+      const indexUrl = new URL('index.json', base).toString();
+      let fuse = null;
+
+      const render = (items) => {
+        if (!items.length) {
+          resultsBox.innerHTML = '<div class="search-empty">Ничего не найдено</div>';
+          return;
+        }
+        resultsBox.innerHTML = items.slice(0, 6).map(res => {
+          const d = res.item || res;
+          const cats = (d.categories || []).join(', ');
+          return `<a class="search-item" href="${d.url}">
+              <div class="search-title">${d.title}</div>
+              ${cats ? `<div class="search-meta">${cats}</div>` : ''}
+            </a>`;
+        }).join('');
+      };
+
+      fetch(indexUrl)
+        .then(r => r.json())
+        .then(json => {
+          fuse = new Fuse(json, {
+            keys: ['title', 'categories', 'tags', 'summary'],
+            includeScore: true,
+            threshold: 0.4,
+          });
+        })
+        .catch(() => {
+          resultsBox.innerHTML = '<div class="search-empty">Не удалось загрузить индекс</div>';
+        });
+
+      input.addEventListener('input', (e) => {
+        const q = e.target.value.trim();
+        if (!q || !fuse) {
+          resultsBox.innerHTML = '';
+          return;
+        }
+        const res = fuse.search(q);
+        render(res);
+      });
+    })();
+  </script>
 </body>
 </html>

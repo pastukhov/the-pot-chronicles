@@ -1,0 +1,13 @@
+[
+{{- $pages := where .Site.RegularPages "Section" "recipes" -}}
+{{- range $i, $p := $pages.ByDate.Reverse }}
+  {
+    "title": {{ $p.Title | jsonify }},
+    "url": {{ $p.RelPermalink | jsonify }},
+    "image": {{ (default "" $p.Params.image) | jsonify }},
+    "categories": {{ $p.Params.categories | jsonify }},
+    "tags": {{ $p.Params.tags | jsonify }},
+    "summary": {{ (or ($p.Summary | plainify | htmlUnescape) ($p.Plain | plainify | htmlUnescape)) | jsonify }}
+  }{{ if not (eq (add $i 1) (len $pages)) }},{{ end }}
+{{- end }}
+]
