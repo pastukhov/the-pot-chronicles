@@ -28,7 +28,7 @@ steps:
   тканей.
 - Для подачи нарежьте язык тонкими ломтями и подавайте с соусом или гарниром по вашему
   выбору.
-image: images/2024/11/25/svinoe-iazyk-v-su-vid.jpg
+image: images/2024/11/25/svinoe-iazyk-v-su-vida.jpg
 ---
 
 ## Ингредиенты
