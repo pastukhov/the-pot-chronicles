@@ -1,14 +1,20 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 {{ define "main" }}
   {{ $pages := where .Site.RegularPages "Section" "recipes" }}
-  {{ range $pages.ByDate.Reverse }}
-    <article class="card">
-      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      {{ with .Params.image }}
-        <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
-      {{ end }}
-    </article>
-  {{ else }}
-    <p class="meta">Рецептов пока нет.</p>
-  {{ end }}
+  <section class="recipes-list">
+    {{ range $pages.ByDate.Reverse }}
+      <article class="recipe-card">
+        <a href="{{ .RelPermalink }}">
+          {{ with .Params.image }}
+            <div class="recipe-cover">
+              <img src="{{ . | absURL }}" alt="{{ $.Title }}">
+            </div>
+          {{ end }}
+          <div class="recipe-title">{{ .Title }}</div>
+        </a>
+      </article>
+    {{ else }}
+      <p class="meta muted">Рецептов пока нет.</p>
+    {{ end }}
+  </section>
 {{ end }}
