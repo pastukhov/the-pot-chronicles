@@ -27,7 +27,7 @@ steps:
 - Обжарить червей с обеих сторон до золотистой корочки, примерно по 3-4 минуты с каждой
   стороны.
 - Подавать горячими с любимыми соусами.
-image: images/2025/09/16/zharenye-korabelnye-chervi.jpg
+image: images/2025/09/16/zharenye-morskie-chervi.jpg
 ---
 
 ## Ингредиенты

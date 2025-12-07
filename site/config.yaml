@@ -4,20 +4,23 @@ title: Хроники Кастрюли
 pagination:
   pagerSize: 20
 disableKinds:
-- RSS
+  - RSS
 module:
   mounts:
-  - source: ../recipes
-    target: content/recipes
-  - source: ../images
-    target: static/images
+    - source: ../recipes
+      target: content/recipes
+    - source: ../images
+      target: static/images
 params:
-  subtitle: Автоматически собранные рецепты из истории чатов
+  subtitle: Сайт, который готовит сам себя
 menu:
   main:
-  - name: По датам
-    url: /archives/
-    weight: 1
-  - name: Теги
-    url: /tags/
-    weight: 2
+    - name: По датам
+      url: /archives/
+      weight: 1
+    - name: Теги
+      url: /tags/
+      weight: 2
+    - name: Все рецепты
+      url: /recipes/
+      weight: 999
