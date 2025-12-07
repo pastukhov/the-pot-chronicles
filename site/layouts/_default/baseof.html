@@ -4,120 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
-  <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --accent: #f97316;
-      --muted: #94a3b8;
-      --text: #e2e8f0;
-      --font: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 10% 20%, rgba(249,115,22,0.08), transparent 25%), var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      line-height: 1.6;
-      padding: 24px 24px 24px 220px;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .sidebar {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 180px;
-      z-index: 999;
-      background: rgba(17, 24, 39, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      border-radius: 14px;
-      padding: 14px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-    }
-    .sidebar h3 {
-      margin: 0 0 10px;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-    .sidebar nav a {
-      display: block;
-      color: var(--text);
-      padding: 6px 8px;
-      border-radius: 8px;
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      background: rgba(255,255,255,0.02);
-      margin-bottom: 6px;
-      text-decoration: none;
-      transition: border-color 160ms ease, transform 160ms ease;
-    }
-    .sidebar nav a:hover {
-      border-color: rgba(249, 115, 22, 0.4);
-      transform: translateY(-1px);
-    }
-    header {
-      max-width: 960px;
-      margin: 0 auto 32px;
-      padding: 16px 20px;
-      background: rgba(17, 24, 39, 0.8);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      border-radius: 16px;
-      box-shadow: 0 25px 80px rgba(0,0,0,0.35);
-      backdrop-filter: blur(10px);
-    }
-    h1 {
-      margin: 0 0 8px;
-      font-size: clamp(28px, 4vw, 36px);
-      letter-spacing: -0.02em;
-    }
-    h2, h3 { letter-spacing: -0.01em; }
-    p.subtitle { margin: 0; color: var(--muted); }
-    main { max-width: 960px; margin: 0 auto; }
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.35);
-      transition: transform 160ms ease, border-color 160ms ease;
-    }
-    .card:hover { transform: translateY(-2px); border-color: rgba(249, 115, 22, 0.35); }
-    .meta { color: var(--muted); font-size: 14px; }
-    img.hero {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      margin: 14px 0;
-      display: block;
-      background: #0b1020;
-    }
-    ul.ingredients { padding-left: 18px; }
-    ol.steps { padding-left: 18px; }
-    @media (max-width: 640px) {
-      body { padding: 12px; }
-      header { padding: 14px 16px; }
-      .card { padding: 16px; }
-    }
-  </style>
+  {{ $style := resources.Get "css/style.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 </head>
 <body>
-  <aside class="sidebar">
-    <h3>Навигация</h3>
-    <nav>
-      <a href="{{ .Site.BaseURL }}">Главная</a>
-      <a href="{{ .Site.BaseURL }}archives/">По датам</a>
-      <a href="{{ .Site.BaseURL }}tags/">Теги</a>
-    </nav>
-  </aside>
-  <header>
-    <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
-    <p class="subtitle">{{ .Site.Params.subtitle }}</p>
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
+  <div class="page">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">Хроники <span class="accent">Ка</span>стрюли</div>
+        <div class="sub">The Pot Chronicles</div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="{{ .Site.BaseURL }}">Главная</a>
+        <a href="{{ .Site.BaseURL }}archives/">По датам</a>
+        <a href="{{ .Site.BaseURL }}tags/">Теги</a>
+      </nav>
+    </aside>
+    <div class="content">
+      {{ partial "header.html" . }}
+      <main class="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer class="site-footer">
+        &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+      </footer>
+    </div>
+  </div>
 </body>
 </html>

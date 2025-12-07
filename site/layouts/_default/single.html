@@ -1,47 +1,55 @@
 {{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 {{ define "main" }}
-  <article class="card">
-    <h2>{{ .Title }}</h2>
-    <p class="meta">
-      {{ $monthMap := dict "January" "января" "February" "февраля" "March" "марта" "April" "апреля" "May" "мая" "June" "июня" "July" "июля" "August" "августа" "September" "сентября" "October" "октября" "November" "ноября" "December" "декабря" }}
-      {{ $monthKey := .Date.Format "January" }}
-      {{ $month := index $monthMap $monthKey }}
-      {{ if $month }}
-        {{ printf "%s %s %s, %s" (.Date.Format "02") $month (.Date.Format "2006") (.Date.Format "15:04") }}
-      {{ else }}
-        {{ .Date.Format "02 January 2006, 15:04" }}
-      {{ end }}
-      {{ with .Params.time }} · {{ . }}{{ end }}
-      {{ with .Params.temperature }} · {{ . }}{{ end }}
-      {{ with .Params.categories }}
-        {{ $translated := slice }}
-        {{ range . }}
-          {{ $translated = $translated | append (partial "translate-category.html" .) }}
+  <article class="card recipe-single">
+    <header class="recipe-head">
+      <h1>{{ .Title }}</h1>
+      <div class="meta-line">
+        {{ $monthMap := dict "January" "января" "February" "февраля" "March" "марта" "April" "апреля" "May" "мая" "June" "июня" "July" "июля" "August" "августа" "September" "сентября" "October" "октября" "November" "ноября" "December" "декабря" }}
+        {{ $monthKey := .Date.Format "January" }}
+        {{ $month := index $monthMap $monthKey }}
+        {{ if $month }}
+          <span class="chip">{{ printf "%s %s %s, %s" (.Date.Format "02") $month (.Date.Format "2006") (.Date.Format "15:04") }}</span>
+        {{ else }}
+          <span class="chip">{{ .Date.Format "02 January 2006, 15:04" }}</span>
         {{ end }}
-        · {{ delimit $translated ", " }}
-      {{ end }}
-    </p>
+        {{ with .Params.time }}<span class="chip">{{ . }}</span>{{ end }}
+        {{ with .Params.temperature }}<span class="chip">{{ . }}</span>{{ end }}
+        {{ with .Params.categories }}
+          {{ $translated := slice }}
+          {{ range . }}
+            {{ $translated = $translated | append (partial "translate-category.html" .) }}
+          {{ end }}
+          <span class="chip">{{ delimit $translated ", " }}</span>
+        {{ end }}
+      </div>
+    </header>
+
     {{ with .Params.image }}
-      <img class="hero" src="{{ . | absURL }}" alt="{{ $.Title }}">
+      <img class="hero-image" src="{{ . | absURL }}" alt="{{ $.Title }}">
     {{ end }}
+
     {{ with .Params.ingredients }}
-      <h3>Ингредиенты</h3>
+      <h3 class="section-title">Ингредиенты</h3>
       <ul class="ingredients">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ul>
     {{ end }}
+
     {{ with .Params.steps }}
-      <h3>Шаги</h3>
+      <h3 class="section-title">Шаги</h3>
       <ol class="steps">
         {{ range . }}<li>{{ . }}</li>{{ end }}
       </ol>
     {{ end }}
+
     {{ with .Params.notes }}
-      <h3>Примечания</h3>
-      <p>{{ . }}</p>
+      <h3 class="section-title">Примечания</h3>
+      <p class="notes">{{ . }}</p>
     {{ end }}
-    <p class="meta">
-      Источник: {{ with .Params.source_thread }}thread {{ . }}{{ end }}
+
+    <p class="source">
+      Источник:
+      {{ with .Params.source_thread }}thread {{ . }}{{ end }}
       {{ with .Params.source_message_id }} · message {{ . }}{{ end }}
     </p>
   </article>
