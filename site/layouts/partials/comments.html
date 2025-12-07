@@ -8,7 +8,7 @@
         data-strict="1"
         data-reactions-enabled="1"
         data-input-position="bottom"
-        data-theme="{{ printf "%sgiscus.css" .Site.BaseURL }}"
+        data-theme="{{ (print "giscus.css?v=1" | absURL) }}"
         crossorigin="anonymous"
         async>
 </script>
