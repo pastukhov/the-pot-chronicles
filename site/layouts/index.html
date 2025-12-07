@@ -1,8 +1,10 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 {{ define "main" }}
   {{ $pages := where .Site.RegularPages "Section" "recipes" }}
+  {{ $sorted := sort $pages "Date" "desc" }}
+  {{ $paginator := .Paginate $sorted 5 }}
   <section class="recipes-list">
-    {{ range $pages.ByDate.Reverse }}
+    {{ range $paginator.Pages }}
       <article class="recipe-card">
         <a href="{{ .RelPermalink }}">
           {{ with .Params.image }}
@@ -17,4 +19,15 @@
       <p class="meta muted">Рецептов пока нет.</p>
     {{ end }}
   </section>
+  {{ if gt $paginator.TotalPages 1 }}
+    <nav class="pagination meta-line" aria-label="Навигация по страницам">
+      {{ if $paginator.HasPrev }}
+        <a class="chip" href="{{ $paginator.Prev.URL }}">← Назад</a>
+      {{ end }}
+      <span class="chip">Стр. {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+      {{ if $paginator.HasNext }}
+        <a class="chip" href="{{ $paginator.Next.URL }}">Вперед →</a>
+      {{ end }}
+    </nav>
+  {{ end }}
 {{ end }}
