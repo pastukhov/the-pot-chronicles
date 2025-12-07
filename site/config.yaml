@@ -18,10 +18,10 @@ outputs:
 params:
   subtitle: Сайт, который готовит сам себя
   giscus:
-    repo: "pastukhov/the-pot-chronicles"
-    repo_id: "R_kgDOQgm40Q"
-    category: "General"
-    category_id: "1"
+    repo: 'pastukhov/the-pot-chronicles'
+    repo_id: 'R_kgDOQgm40Q'
+    category: 'General'
+    category_id: 'DIC_kwDOQgm40c4CzfvQ'
 menu:
   main:
     - name: По датам
