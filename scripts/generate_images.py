@@ -19,9 +19,10 @@ API_KEY_ENV = "OPENAI_API_KEY"
 IMAGE_MODEL = "gpt-image-1"
 
 PROMPT_TEMPLATE = (
-  "Generate a food photography image of the finished dish.\n"
-  "Style: minimalistic, soft natural lighting, shallow depth-of-field.\n"
-  "Subject: final plated dish.\n"
+  "Capture a warm, natural food photograph of the finished dish on a wooden table.\n"
+  "Style: candid, soft window light, warm tones, gentle shadows, shallow depth-of-field.\n"
+  "Mood: home-cooked and slightly imperfect; no plastic shine or oversaturated colors.\n"
+  "Subject: final plated dish with minimal props.\n"
   "Recipe: {title}\n"
   "Ingredients: {ingredients}"
 )

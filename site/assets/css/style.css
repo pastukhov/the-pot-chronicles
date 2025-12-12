@@ -166,6 +166,13 @@ a:hover {
   margin: 0 auto;
 }
 
+.intro {
+  margin: 12px 0 20px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
 .hero-header {
   background: linear-gradient(135deg, rgba(255, 0, 204, 0.08), rgba(17, 17, 17, 0.7));
   border: 1px solid var(--border);

@@ -24,6 +24,10 @@
       </div>
     </header>
 
+    {{ with .Params.intro }}
+      <p class="intro">{{ . }}</p>
+    {{ end }}
+
     {{ with .Params.image }}
       <img class="hero-image" src="{{ . | absURL }}" alt="{{ $.Title }}">
     {{ end }}
